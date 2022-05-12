@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>폼요소</title>
+        <meta charset="utf-8">
+
+
+    </head>
+    <body>
+        <!--  form 요소  : anchor 처럼 다른 문서가 실행하지만 데이터를 전달할 수 있음. 이동하기 위한 별도의 input요소 필요 -->
+
+                    <!-- 폼 요소 안에 있기만 하면 데이터 다 가는거 -->
+
+<!--   1.   GET Method Test -->
+
+<form action="./getTest.php" method="get">
+    <input type="text" name="title" >
+    <input type="text" name="msg" >
+    <input type="submit">
+      <!-- 제출 버튼을 누르면 폴더가 이동함. ( Day02/03_form.html  ->  Day02/getTest.php?title=Inah&msg=Hello) -->
+
+</form>
+
+<br>
+<br>
+<br>
+
+
+<!--   1.   POST Method Test -->
+    <form action="./postTest.php" method="post" enctype="application/x-www-form-urlencoded">
+        <input type="text" name="id" placeholder="ID 입력하세요">
+        <input type="password" name="pw" placeholder="비밀번호 입력하세요">
+ 
+        <p>
+            gender : 
+            <label><input type="radio" name="rg" value="male">male</label>
+            <label><input type="radio" name="rg" value="fmale">fmale</label>
+
+        </p>
+        <p>
+            <!-- 체크박스 -->
+            fruits : 
+            <label><input type="checkbox" name="fruits[]" value="banana" checked>Banana</label>
+            <label><input type="checkbox" name="fruits[]" value="orange" checked>Orange</label>
+            <label><input type="checkbox" name="fruits[]" value="apple">Apple</label>
+        </p>
+        <p>
+            <!-- 여러줄 입력받기 -->
+            message:
+            <textarea name="msg" cols="40" rows="5"></textarea>
+        </p>
+        <p>
+            <div>
+                <select name="brand" >
+                <optgroup label="자동차 브랜드">
+                    <option value="현대">현대</option>
+                    <option value="기아">기아</option>
+                    <option value="대우">대우</option>
+                    <option value="쌍용">쌍용</option>
+                </optgroup>
+            </select>
+            </div>
+
+        </p>
+
+<br>
+<br>
+        <p>
+        <input type="submit" value="회원가입">
+         <input type="reset" value="취소">
+        </p>
+    </form>
+
+    </body>
+</html>

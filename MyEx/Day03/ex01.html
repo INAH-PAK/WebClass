@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>폰트 문제 1</title>
+        <meta charset="utf-8">
+
+        <style>
+            h1, h2{ font-size: 500%; color: greenyellow; font-weight: bold; font-family: font1, sans-serif;}
+            #p1, #p2{ color: yellow; font-weight: bold; text-transform: uppercase; font-family: font2, sans-serif;}
+            #p2{ font-style: italic }
+         
+            body>ul{text-transform: uppercase; color: blue;}
+            #li{ color: red; text-align: justify; }
+            
+            @font-face {
+                font-family: "font1";
+                src: url(./font/maplestorylight.ttf);
+            }
+            @font-face {
+                font-family: "font2";
+                src: url(./font/nanumgothic.otf);
+            }
+            
+
+        </style>
+    </head>
+    <body>
+
+    <h1>웹 프로그래밍 과목</h1>
+    <p>웹 프로그래밍에선 많은 관심을 받고 있는 <em id="p1">html5</em> 와 <em id="p2">css</em> 를 중심으로 로로</p>
+    <h2>다루는 주제들</h2>
+    <ul>
+        <li> html5</li>
+            <ul id="li">
+            <li>지오 로케이션</li>
+            <li>그래그 앤 드롭</li>
+            </ul>
+    </ul>
+
+    </body>
+</html>

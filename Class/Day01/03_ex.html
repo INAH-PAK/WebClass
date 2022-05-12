@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>03 ex</title>
+            <meta charset="utf-8">
+    </head>
+    <body>
+        
+        <ul id="list">
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ul>
+
+        <ol>
+            <li>aaa</li>
+            <li>bbb</li>
+            <li>ccc</li>
+        </ol>
+
+        <dl>
+            <dt>aaa</dt>
+            <dd>이것은 Definition Data 입니다.</dd>
+            <dt>bbb</dt>
+            <dd> - 이것은 Definition Data 입니다.</dd>
+            <dt>ccc</dt>
+            <dd> - 이것은 Definition Data 입니다.</dd>
+
+        </dl>
+
+        <hr>
+        <!--  <a> anchor 요소 -->
+        <!-- -->
+<!-- 절대주소 앵커 -->
+        <a href="https://www.naver.com" >NAVER</a>
+        <!-- 상대주소 앵커 :   -->
+        <!-- [  ./  ] 현재 폴더 , [ ../ ] 상위 폴더 -->
+        <br>
+        <a href="./02_text.html">상대주소로 이동 하기 : 같은 폴더</a>
+        <!-- 같은 문서 안의 특정한 위치로 이동 -->
+        <a href="#help">도움말 위치로 가기</a>
+        <br>
+        <br>
+        <h4 id="help">도움말</h4>
+        <a href="#list">상단 리스트로 가기</a>
+
+        <!-- 이렇게 하면 br 안쓰고 요소 중첩 -->
+        <p><a href="">aaa</a></p>
+        <p><a href="">bbb</a></p>
+
+        <ul>
+            <li><a href="">메뉴는 이런식으로 만듬</a></li>
+            <li><a href="">남성복</a></li>
+            <li><a href="">여성복</a></li>
+        </ul>
+
+        <!-- 모바일에서 많이 사용하는 이메일 링크 -->
+        <!-- 폰에선 구글 메일 앱뜨고, 윈도우는 메일앱 뜸 -->
+        <p><a href="mailto:inahpakkr@gmail.com">inahpakkr@gmail.com</a></p>
+
+        <!-- 이미지보는 링크도 만들 수 있음 !!! 이미지 보기 !! -->
+        <p><a target="_blank" href="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.newdaily.co.kr%2Fsite%2Fdata%2Fimg%2F2021%2F04%2F06%2F2021040600058_0.jpg&imgrefurl=https%3A%2F%2Fbiz.newdaily.co.kr%2Fsite%2Fdata%2Fhtml%2F2021%2F04%2F06%2F2021040600058.html&tbnid=f8g7GDIF3F-riM&vet=12ahUKEwinv6rvjdT3AhVFat4KHXq9DHoQMygaegUIARCMAg..i&docid=hiarOyxsChoKaM&w=640&h=426&q=%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4&ved=2ahUKEwinv6rvjdT3AhVFat4KHXq9DHoQMygaegUIARCMAg">절대주소 이미지 보기</a></p>
+   
+        <p><a href="./programmer.png">상대주소 이미지 링크</a></p>
+   
+        <!-- 웹으로 볼 수 없는 문서는 자동으로 다운로드 링크를 보여줌 -->
+        <!-- 다운로드 링크    -->
+
+        <p><a href="./Web.zip">압축문서 다운로드</a></p>
+
+        <hr>
+
+        <!-- image -->
+        <!--  1. 상대주소  -->
+        <img src="./programmer.png" alt="설악산">
+        <!--  2. 절대주소  -->
+        <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fimage.newdaily.co.kr%2Fsite%2Fdata%2Fimg%2F2021%2F04%2F06%2F2021040600058_0.jpg&imgrefurl=https%3A%2F%2Fbiz.newdaily.co.kr%2Fsite%2Fdata%2Fhtml%2F2021%2F04%2F06%2F2021040600058.html&tbnid=f8g7GDIF3F-riM&vet=12ahUKEwinv6rvjdT3AhVFat4KHXq9DHoQMygaegUIARCMAg..i&docid=hiarOyxsChoKaM&w=640&h=426&q=%EC%8A%A4%ED%83%80%EB%B2%85%EC%8A%A4&ved=2ahUKEwinv6rvjdT3AhVFat4KHXq9DHoQMygaegUIARCMAg" alt="스타벅스 이미지">
+   
+        <img src="./programmer.png" alt="아조씨" width="200" border="5">
+
+        <img src="./fff.jpg" alt="이미지 안나오면 대체글씨">
+
+        <!-- 이미지와 앵커를 합치기 -->
+        <!-- href 없으면 자기 자신 문서를 다시 염 -->
+        <a href=""><img src="./programmer.png" alt="개발자 아저씨" width="200"></a>
+
+
+
+
+
+    </body>
+    </html>

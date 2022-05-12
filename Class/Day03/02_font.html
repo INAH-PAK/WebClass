@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>폰트와 텍스트 스타일</title>
+        <style>
+            /* 여기는 css 문법을 따르는  이너 CSS 적용 */
+
+            /* 1. 폰트 */
+            p {
+                /* font-family: KoPub돋움체 Medium; */
+                /* font-family: monospace; */
+
+
+
+            }   
+                            /* 웹 폰트 : 개발자가 직겁 지정한 별도의 글꼴파일 사용 */
+                /* 컴터에 설치된 파일이 아닌 파일 자체를 추가.  -> Font 디렉토리  */
+                         @font-face {
+                    font-family: "My Font";
+                    /* CSS 안에서 경로에 관련된건 무조건 url() 로 !! */
+                    src: url("./Font/maplestorylight.ttf");
+                    /*  근데 한글은 안될 수 도 있으니까 꼭 테스트 해봐야 함 ! */
+                }
+
+                    p{
+                        font-family: "My Font", sans-serif;
+                    }
+                    p{
+                        font-size: 60px;
+                    }
+                    p{
+                        font-size: 1.5%;
+                    }
+                    p{
+                        /* 150% == 1.5em */
+                        font-size: 1.5em;
+                    } 
+                    p{
+                        /* 최상위 부모 사이즈를 따름.  */
+                        /* 요즘 권장은 이걸 많이 씀 !!!!!!!!!!!!!!!!!!!!!!!! */
+                        font-size: 5.0rem;
+                    }
+                    p{
+                        font-weight: bold;
+                        /* 이미 볼드체였을 경우, 이 속성은 무시됨. */
+                        /* 거의 여기엔 nomal / bold 만 씀 !  */
+                    }
+                    p{
+                        /* 폰트 눕히자  - italic , nomal 많이 씀*/
+                        font-style: italic;
+                    }
+
+                    p{
+                     /*  위에 다 한번에 축약  -  순서 중요 !!! */
+                    /* ( style  , weight ) ,  size   ,  family  */
+                        font: bold italic 3.8rem "My Font" , sans-serif;
+                    }
+
+                    /* 텍스트 관련 속성들을 알아보자 !!!! */
+                    /* 2. 텍스트 속성 */
+                    p{
+                        /* 가운데 정렬 */
+                        text-align: center;  
+                        /* 양쪽 정렬 */
+                        text-align: justify;
+                    }
+                    p{
+                        /* 영어에서 모두 대문자 */
+                        text-transform: uppercase;
+                    }
+                    p{
+                        /* 영어에서 모두 소문자 */
+                        text-transform: lowercase;
+                    }
+                    p{
+                        /* 영어에서 각 단어의 첫글자 */
+                        text-transform: capitalize;
+                    }
+                    p{
+                        /* 텍스트에 줄 긋기 */
+                        text-decoration: overline;
+                    }
+                    /*  텍스트 가운데 줄 긋기 */
+                    p{
+                        text-decoration: line-through;
+                    }
+                    /* 텍스트 줄 삭제 */
+                    p{
+                        text-decoration: none;
+                    }
+                    p{
+                        text-shadow: 5px 3px 6px skyblue;
+                    }   
+                    /* 워드 랩  */
+                    #p1{
+                        /* 5글자 정도 들어갈 사이즈로 줄어듬. */
+                        width: 5em;
+                        border: 6px solid pink;
+                    }
+                    #p2{
+                        /* 5글자 정도 들어갈 사이즈로 줄어듬. */
+                        width: 5em;
+                        border: 6px solid pink;
+                        word-wrap: break-word;
+                    }
+                    
+                    .p_colum{
+                        /*  줄 갯수 */
+                        column-count: 2;
+                        /* 줄 위아해 마진? */
+                        column-gap: 80px;
+                        /* 줄에 자를 그음 -  세로로 구분 */
+                        column-rule: 4px dotted yellowgreen;
+                        word-wrap: break-word; 
+                    }
+
+
+
+
+        </style>
+    </head>
+    <body>
+        
+        <p>Hello World!<br>
+        </p>
+        <p> 한글을 이렇게</p>
+
+        <p id="p1">
+            한글은 전혀 문제 없이 워드 랩이 됨 ! ==> 내가 만든 박스 안에 들어가도 자동 줄바꿈 됨
+        </p>
+        <p id="p2">
+            영어는 자동 워드랩 안됨 1!!1!!!!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+        </p>
+        <!--  출판사에서 사용 많이 하는  lorem ipsum (아무 상관 없는 글자 더미)  :  테스트용 글자 긴거  L쓰면 자동완성됨 -->
+        <p class="p_colum">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, assumenda unde inventore repellat velit beatae dolorem natus esse odit! Amet nisi quaerat laboriosam maxime quasi dignissimos fugit, at nobis voluptates.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non cupiditate ea voluptate, accusantium facilis exercitationem quis dicta soluta debitis minus blanditiis possimus nemo dolor nesciunt, in voluptatibus beatae, voluptates itaque!
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cupiditate voluptas in natus adipisci ea quisquam aliquid deserunt enim, molestiae officia iure quas, esse rem ipsa blanditiis pariatur, voluptatem dolorem.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates dignissimos vel accusantium ea veritatis maiores unde iure perspiciatis sint non rem rerum laudantium quia voluptatem ducimus, nesciunt dolor voluptatum cupiditate.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium alias facere assumenda ratione, dolor quas expedita dicta tempore accusantium blanditiis voluptates fugiat iusto! Ratione reiciendis perferendis ab rerum reprehenderit impedit.
+
+        </p>
+
+
+    </body>
+</html>

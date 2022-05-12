@@ -1,0 +1,50 @@
+
+ 
+ 
+ /*   공통적인 부분은 여기서 기입 */
+
+    body {   background-color: yellow;
+        font-size: large;
+        text-align: center;
+        color: blue;
+        font-style: oblique;
+    }
+
+     /* 차이가 나는 부분들은 여기서 기입. */
+    p em{
+        color: aliceblue;
+    }
+        h1, p{
+        font-family: serif;
+        color: blue;
+    }
+    h1 {
+        border-bottom: 1px solid gray;
+        color: rebeccapurple;
+        
+
+    }
+
+    .p1 {
+        color: pink;
+        font-style: italic;
+        border: 3px solid black;
+    }
+    p#p2 {
+        font-size: 1.0em;
+        text-align: end;
+    }
+
+    p#p3 {
+        font-size: 1.5em;
+    }
+    p#p4 {
+        font-size: 2.0em;
+    }
+    .p5{
+        column-count: 2 ;
+        column-rule: 4px outset red;
+    }
+    #a{
+        text-decoration: none;
+    }

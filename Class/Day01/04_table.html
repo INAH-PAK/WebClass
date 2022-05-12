@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>05 table</title>
+            <meta charset="utf-8">
+    </head>
+    <body>
+        <table border="1" >
+            <tr>
+                <th>Number</th>
+                <th>Name</th>
+                <th>Message</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Inah</td>
+                <td>안녕</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Woogie</td>
+                <td>웅 안녕?</td>
+                <td>2022년 05월 10일</td>
+            </tr>
+
+
+            <!-- 셀병합 -->
+            <!-- 다음 줄이라는 개념이 있어야 확장됨. -->
+            <table border="1">
+
+            <tr>
+                <td rowspan="2">111</td>
+                <td colspan="3">222</td>
+                <td>333</td>
+            </tr>
+            <tr>
+                <td>444</td>
+                <td>555</td>
+                <td>6666666666</td>
+            </tr> 
+            <!-- 테이블 제목  : caption의 위치는 무조건 상단 ! 바꾸고 싶다면 CSS 적용해야 함.-->
+            <caption>테이블 제목</caption>
+            </table>
+
+            <!-- 테이블의 td 요소 안에 다른 요소를 배치 -->
+
+            <table border="1" width="100%">
+                <tr>
+                    <td width = "30%"><a href="http://www.naver.com">NAVER</a></td>
+                    <td>
+                        <ul>
+                            <li>aaa</li>
+                            <li>bbb</li>
+                            <li>ccc</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>테이블 안에는 어떤 요소든 넣을 수 있음. 한글은 띄어쓰기 없어도 자동 줄바꿈이 됨 ! </td>
+                    <td>영어는 안됨aaaaaaaaaaaaaaaaaaaaavvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvccccccccccccccccccccccc</td>
+                    <td><img src="./img/coffee.gif" alt="핫커피" width="70%" height="150"></td>
+                </tr>
+
+            </table>
+
+
+
+
+            
+        </table>
+    </body>
+</html>
