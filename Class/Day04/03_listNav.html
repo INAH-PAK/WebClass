@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>쇼핑몰의 메뉴판 만들어 보자</title>
+        <style>
+
+            ul{
+                list-style: none;
+                border-top:2px solid pink;
+                border-bottom: 2px solid pink;
+                text-align: center;
+                padding: 10px 1px;
+            }
+            ul li{
+                display: inline;
+                padding: 0px 10px;
+                 /*  letter-spacing :  자간 간격  -> 언더바에 이쁘게 안들어오니까, 글자를 아예 띄어쓰기 해야 이뻐짐/.*/
+                letter-spacing: 10px;
+                text-transform: uppercase;
+
+            }
+
+            ul li a{ text-decoration: none; color: black;}
+            ul li a:hover{text-decoration: underline;}
+
+            #header{
+                background-color: rgba(211, 211, 211, 0.558) ;
+                padding: 3em 0em;
+            }
+
+            body{
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+            }
+            body p{ font-size: 3rem;}
+
+        </style>
+    </head>
+    <body>
+
+        <div id="header">
+            <h1>나의 홈 페이지</h1>
+            <p>This is my homepage.</p>
+        </div>
+
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </body>
+</html>

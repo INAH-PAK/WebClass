@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>테이블 스타일</title>
+        <style>
+            table{
+                border: 2px solid ;
+                /* 이중으로 그려지는 줄을 안그려지게 ~~ 일반 테이블같이 */
+                border-collapse: collapse;
+
+                text-align: center;
+            }
+            th, td{
+                border: 1px solid;
+            }
+            th{
+                background-color: greenyellow ; color: green;
+            }
+            tr:nth-child(n){ background-color: pink; color: palevioletred;}
+            tr:nth-child(2n+1){ background-color: bisque; color: black;}
+
+            td:first-child{ width: 40%;}
+            tr:first-child{ border-bottom: double blue;}
+
+            /* 헐;;;;;;  */
+            /* 사실 테이블은 숨겨놓은 자식 하나 있었음 ;;;; */
+            /*  테이블의 직계자식을 명시적으로 표시하는 것과 상관 없이 tbody 임 ㅋㅋ */
+            table>:nth-child(1){ border: 10px solid red;}
+            
+            /* 자, tr들을 찾고 싶다면, */
+            table>tr{ color:  aqua;} /* 이렇게 하면 t body 가 디어서 전체 적용 됨*/
+            table tr{ color:  aqua;}/*이렇게 자손으로 찾아야 함*/
+
+
+
+        </style>
+    </head>
+    <body>
+        
+        <table>
+            <tr>
+                <th>이름 </th>
+                <th>이메일</th>
+            </tr>
+            <tr>
+                <td>기태</td>
+                <td>ggggnah@naver.com</td>
+            </tr>
+            <tr>
+                <td>지영</td>
+                <td>gggggggggggnah@naver.com</td>
+            </tr>
+            <tr>
+                <td>준형</td>
+                <td>ttttttttttnah@naver.com</td>
+            </tr>
+            <tr>
+                <td>인아</td>
+                <td>inah@naver.com</td>
+            </tr>
+
+        </table>
+    </body>
+</html>

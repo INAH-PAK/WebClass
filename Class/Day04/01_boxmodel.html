@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- 액자 사이즈 예제 -->
+<html>
+    <head>
+            <meta charset="uft-8">
+            <title>액자 사이즈 예제</title>
+            <style>
+                /*  이 영역 안에서는 CSS 문법 체계 따름. */
+                .border{
+                    /* 블럭 요소의 경계선 그리기. 너비 안주면 자동 3px.  */
+                    border-style: solid;
+                    border-top-style: dotted ;
+                    
+                    border-width: 1px;
+                    border-bottom-width: 8px;
+
+                    border-color: red;
+                    border-right-color: blue ;
+
+                    border-radius: 20px;
+                    border-bottom-right-radius: 0px;
+
+                    /* 근데 이렇게 반지름주면 글자가 튀어나옴 ->  */
+
+                    /* transparent : 투명하게 */
+
+                    border: 30px solid transparent ;
+                    /* 경계선 이미지 */
+                    border-image-source: url(./image/border.png) ;
+                    border-image-slice: 30 30;  /* 높이 너비 */
+                    border-image-repeat: round;
+
+                    /* 1. 요소 크기  - 블럭요소  -> 블럭요소는 기본이 매치 랩 가운데 정렬 ! */
+                    width: 70%;  /* 블럭 요소는 기본이 매치!!*/
+                    height: 400px;
+
+                    /*  가운데 정렬 */
+                    /* 이거 중요 !!!!!!!!! 막 컴터 모니터 크면 그 안에 가운데에다가 놔야 하기 때문에 !!!!! */
+                    margin-left: auto;
+                    margin-right: auto;
+
+                }
+                    /* 2. 인라인 요소 */
+                    /* 인라인 요소느 ㄴ너비,높이 적용 안됨. ! 단, img, input 같은 요소는 알아먹음 */
+                a ,em {background-color: aqua;  width: 300px;  }
+
+                img{width: 500px; border: 1px solid black;}
+                input{width: 100%; background-color: aqua;}
+
+                /* 마진 연습 */
+                /* 안드로이드에서의 마진과 다르게 css의 마진은 중첩 됨 . */
+                .margin_test #p1 {background-color: skyblue; height: 50px; margin: 0; margin-bottom: 10px;}
+                .margin_test #p2 {background-color: blanchedalmond; height: 50px; margin: 0; margin-top: 10px;}
+
+                /*  심지어 마이너스 마진도 있음  -> 요소가겹쳐짐 ( 주로 이미지와 텍스트를 겹칠 때 사용 됨.)*/
+                .margin_test #p1 {background-color: skyblue; height: 50px; margin: 0; }
+                .margin_test #p2 {background-color: blanchedalmond; height: 50px; width: 50%; margin:0 ; margin-top: -20px;}
+
+                /* 백그라운드 연습 */
+
+                #bg {
+                    background-color: rgba(221, 255, 171, 0.589);
+                    background-image: url(./image/image.png);
+                    background-size: 200px 100px;
+                    background-repeat: repeat; /*기본이 반복 ! */
+                    background-repeat: repeat-y; 
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-position: top right;
+
+                    /*  위의 내용 축약 */
+                    background: rgba(251, 236, 153, 0.65) url(./image/image.png) no-repeat center;
+                    margin: 20px;
+                    padding: 30px;
+                }
+                /*  배경 이미지의 붙어있는 위치 설정 */
+                #attach{
+                    width: 60%;
+                    height: 300px;
+                    border: 2px solid blue;
+                    overflow: scroll;
+
+                    margin-left: auto;
+                    margin-right: auto;
+
+                    background-image: url(./image/image.png);
+                    background-size: 200px 100px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+
+                    /* background - attachment : 디폴트 : 요소의 스크롤을 따라 움직임. 
+                                                 마치 액자에 딱 붙은느낌 .. */
+                    background-attachment: scroll;
+                    background-attachment: local;
+                    /* 이건 요소의 위치와 상관없이 브라우저에 붙음 . 
+                        -> 전체 화면에 붙은 느낌 ( 이 요소 안에서만 이 배경을 볼 수 있음.) */
+                    background-attachment: fixed;
+                }
+
+            </style>
+    </head>
+    <body>
+        <!-- 경계선, 요소크기 , 중앙 정렬 -->
+        <p class="border">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla quisquam quis numquam voluptatem dolorum maxime iusto quaerat at quae fugiat obcaecati nobis quidem, cumque nostrum possimus, laudantium ipsum vero mollitia.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid corrupti labore neque rem dolorum nemo culpa. Deleniti, tenetur fugiat nihil assumenda fugit deserunt reiciendis, aspernatur, laborum consequatur aperiam alias praesentium.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat dolorem odio perspiciatis expedita repudiandae. Modi harum optio voluptatibus distinctio tempore amet eaque consectetur, magnam earum vitae, deserunt explicabo. Voluptatum, quis?
+        
+        </p>
+
+        <a href="">NAVRE</a>
+        <em>HELLO WORLD</em>
+        <img src="./image/back.jpg" alt="back 이미지">
+        <input type="text" >
+
+
+        <hr>
+
+        <div class="margin_test">
+            <p id="p1">#p1</p>
+            <p id="p2">#p2</p>
+        </div>
+
+        <hr>
+        <!-- 배경 이미지 -->
+        <p id="bg">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis enim incidunt earum assumenda. Sequi dignissimos unde maxime, quidem perferendis libero quaerat magnam voluptas accusamus illo a ullam nihil non quia!
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia molestias ratione quasi aut libero eveniet temporibus inventore ullam atque in natus maxime blanditiis fuga, autem, facere qui nesciunt quisquam ipsam.
+
+        </p>
+
+        <p id="attach">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus voluptatum ea magni, perferendis error fugit placeat illum laudantium cum architecto sapiente! Quo totam nobis distinctio molestiae, reprehenderit repudiandae optio. Dolore?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo commodi iste, incidunt magnam in impedit repellat officiis aliquid nobis voluptates itaque? Cumque repellat nesciunt eos! Ea sequi quos quasi odio.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. At ipsa quasi commodi reiciendis, suscipit et dignissimos ea explicabo doloribus quo quidem accusantium aperiam. Cumque labore tempore aliquid, nostrum nulla deserunt.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, saepe! Optio, in amet consectetur voluptatem ducimus fuga molestias. A tempore doloribus laboriosam sapiente qui veniam illo iure reiciendis deleniti iste?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam eos et est voluptas, voluptate minima modi mollitia corrupti? Ea quaerat voluptatem expedita sapiente optio nulla sed ducimus ipsa? Impedit.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit eius autem labore error deserunt ipsam voluptas odio enim possimus, modi fugiat dolore natus, cupiditate eligendi cumque doloremque at qui. Voluptatem?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque id ducimus commodi itaque, alias officia molestias iure obcaecati corrupti. Dolorem, nulla! Ad nisi accusantium dolorem quis est excepturi quae culpa?
+
+        </p>
+    </body>
+</html>

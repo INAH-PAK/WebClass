@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>레이아웃 포지션</title>
+    <style>
+
+        #aa{
+            background-color: black;
+            /* 밑에 쭉 내려갔다가 와. 왔냐? */
+            /* absolute 포지션을 가진 자식 뷰의 기준점을 주기 위해 !!! 이 부모에게 포지션을 줌 */
+            position: relative;}
+        #p1{ width: 200px; height: 50px; background-color: lightpink;}
+        #p2{ 
+            width: 200px; height: 50px; background-color: lightcyan; 
+             /* 1.   position: static; -> 원래 놓여질 위치에 그래도 놓여짐 */
+            position: static;
+              /*  2.  position: relative; -> 원래 놓여질 위치를 기준으로 위치설정속성에의해 위치조정 됨 */
+            position: relative;
+            /*  위치 설정 속성 [ top, bottom , left ... ] */
+            /*  margin 은 아예 뒤에 있는녀석도 밀려버리고 left top 은 나만 밀려버림 !!!!!!!  */
+            /* 그래서 제일 많이 사용되는 속성임 !!!!!! relative !!! 그리고 또 하나 각광받는 애 3 */
+            /*  3.   position: absolute; */
+
+            position: absolute;
+            /*  문서의 시작점이 최 솽단으로 감 !!! */
+            /*  그러면 2랑 모가 다르냐면  */
+            /* 아예 p3는 p2 가 없다고 생각함.!! 아까 릴리티브는 p3가 p2있다고 생각했자낭 */
+            /*  근데 이렇게 하면 왜 div 안에 넣어서 자식느낌으로 넣었냐 ~~ */
+            /*  보통 사용할 때, 헤더 부분에서 막 아이콘이랑 글씨랑 막 썼을 때, */
+            /* 이렇게 앱솔로트를 블럭 안에서 많이 씀  */
+            /* 헐 어케? 기본은 문서의 시작점으로 만드는거고 */
+            /*  -> 포지션이 앱솔루트일 때, 부모 요소의 시작점으로 하고 싶다면 ? */
+            /* 부모 요소의 포지션이 static이 아니면 됨 . */
+            /*  맨 위의 div의 포지션 설정 ㄱㄱ */
+
+            /* 윈도우 창을 기준으로 위치설정 */
+            /* 광고창 띄울 때 사용 */
+            position: fixed;
+
+            left: 50px;
+            top: 30px;
+        }
+        #p3{ 
+            width: 200px; height: 50px; background-color: lightskyblue;
+        
+        }
+    </style>
+</head>
+<body>
+    
+
+    <h2>position 속성 연습</h2>
+
+    <hr>
+
+    <div id="aa">
+
+        <p id="p1">block #1</p>
+        <p id="p2">block #2</p>
+        <p id="p3">block #3</p>
+
+    </div>
+
+</body>
+</html>
