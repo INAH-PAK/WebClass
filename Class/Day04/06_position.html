@@ -13,7 +13,7 @@
         #p1{ width: 200px; height: 50px; background-color: lightpink;}
         #p2{ 
             width: 200px; height: 50px; background-color: lightcyan; 
-             /* 1.   position: static; -> 원래 놓여질 위치에 그래도 놓여짐 */
+             /* 1.   position: static; ->   원래 놓여질 위치에 그래도 놓여짐 */
             position: static;
               /*  2.  position: relative; -> 원래 놓여질 위치를 기준으로 위치설정속성에의해 위치조정 됨 */
             position: relative;
@@ -24,22 +24,24 @@
 
             position: absolute;
             /*  문서의 시작점이 최 솽단으로 감 !!! */
-            /*  그러면 2랑 모가 다르냐면  */
+            /*  그러면 2랑 모가 다르냐면    */
             /* 아예 p3는 p2 가 없다고 생각함.!! 아까 릴리티브는 p3가 p2있다고 생각했자낭 */
             /*  근데 이렇게 하면 왜 div 안에 넣어서 자식느낌으로 넣었냐 ~~ */
             /*  보통 사용할 때, 헤더 부분에서 막 아이콘이랑 글씨랑 막 썼을 때, */
             /* 이렇게 앱솔로트를 블럭 안에서 많이 씀  */
             /* 헐 어케? 기본은 문서의 시작점으로 만드는거고 */
-            /*  -> 포지션이 앱솔루트일 때, 부모 요소의 시작점으로 하고 싶다면 ? */
+            /*  -> 포지션이 앱솔루트일 때, 부모 요소의 시작점으로 하고 싶다면 ?  ==== */
+
             /* 부모 요소의 포지션이 static이 아니면 됨 . */
             /*  맨 위의 div의 포지션 설정 ㄱㄱ */
 
             /* 윈도우 창을 기준으로 위치설정 */
-            /* 광고창 띄울 때 사용 */
-            position: fixed;
-
+            /* 광고창 띄울 때 사용    창을   */
+        
+            position: fixed; 
             left: 50px;
             top: 30px;
+            𝘣𝘰𝘳𝘥𝘦𝘳
         }
         #p3{ 
             width: 200px; height: 50px; background-color: lightskyblue;
@@ -50,7 +52,7 @@
 <body>
     
 
-    <h2>position 속성 연습</h2>
+    <h2>position 속성 연습  </h2>
 
     <hr>
 
