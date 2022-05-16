@@ -1,0 +1,102 @@
+/*⁡⁣⁣⁢ ‍𝗰𝘀𝘀 시작시 주는 첫 번째!⁡ ​⁡-> 모든 요소의 마진과 패딩을 다 없에버림. */
+*{margin: 0px; padding: 0;} 
+
+/* ⁡⁣⁣⁢화면에 너무 붙어있어서⁡ */
+body{
+    padding: 30px;
+    background-color: #F3F1F9;
+}
+
+/* ⁡⁣⁣⁢제목줄 영역⁡⁡ */
+header{
+    padding: 5px 10px ;
+}
+header a{text-decoration: none; color: rgb(37, 37, 37);}
+
+/* nav  메뉴영역 */
+nav{ margin-top: 10; margin-bottom: 20 ;}
+
+nav ul{ 
+    list-style: none;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    text-align: center;
+
+ }
+
+ nav ul li{ 
+     display: inline;
+    letter-spacing: 0.3rem;
+    margin-left: 0.3rem;
+    }
+
+nav ul li a{
+      text-transform: uppercase;
+      text-decoration: none;
+    color: black;
+    line-height: 3rem;    /*  위아래 총 3글자가 들어가는 사이즈로 높임. */
+  
+} 
+    
+
+nav ul li a:hover{ text-decoration: underline; }
+
+/*  왼쪽 사이드 메뉴 : 카테고리 */
+
+aside#category{
+    float: left;
+    width: 10rem;
+    margin-right: 1rem;
+}
+
+
+#category ul{
+    list-style: none;   
+}
+#category ul li{
+         background-color: rgb(49, 49, 49);
+    border-bottom: 1px solid black;
+}
+#category ul li a{
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+}
+
+
+#category ul li a:hover{
+    background-color: red;
+}
+
+#category h4{
+    padding: 5px;
+}
+
+/* ⁡⁢⁣⁣본문 영역을 aside 높이로 띄우기⁡ -> 그래서 옆으로 놓이도록! */
+#main{
+    float: left;
+    width: 460px;
+}
+
+/* 쇼핑카트와 로그인 aside 영역 */
+aside#shopcartlogin{
+
+    float: right;
+    padding: 10xp;
+    width: 12rem;
+}
+footer{
+    clear: both;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+#shopcartlogin #shopcart{
+    margin-bottom: 30px;
+}
+
+#shopcartlogin #login input{
+    margin-bottom: 15px;
+}

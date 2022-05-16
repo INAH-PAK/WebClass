@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>transfrom style</title>
+        <style>
+            div{
+                width: 50px; height: 50px;
+                background-color: yellow;
+                border: 1px solid black;
+                text-align: center;
+            }
+
+            div#b1{
+                transform: translate(100px, 0px); /*이동*/
+            }
+
+            div#b2{
+                transform: scale(1.2, 1.4);
+                background-color: blue;
+            }
+
+            div#b3{
+                transform: rotate(30deg);
+                background-color: red;
+            }
+
+            div#b4{
+                transform: skew(20deg, 10deg);
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>transform(변환) CSS 속성</h1>
+
+        <div id="b1">Box1</div>
+        <div id="b2">Box2</div>
+        <div id="b3">Box3</div>
+        <div id="b4">Box4</div>
+
+    </body>
+</html>

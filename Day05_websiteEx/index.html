@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Shop</title>
+    <!-- 외부 스타일 시트 연결 -->
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <header > 
+
+        <h1>
+            <a href="./index.html"><img src="./image/shop.png" alt=shop logo" width="50" height="50"> Web Shop </a>
+        </h1>
+        <nav>
+            <ul>
+                <!--  여기  .html 파일은 내가 예제로 나중에 만들어야 함-->
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about.html">About us</a></li>
+                <li><a href="./news.html">News</a></li>
+                <li><a href="./myaccount.html">My Account</a></li>
+                <li><a href="./contacts.html">Contacts</a></li>
+            </ul>
+        </nav>
+
+        <aside id="category">
+            <h4>카테고리</h4>
+            <ul>
+                <!-- #inah는  -->
+                <li><a target="inah" href="./computer.html">컴퓨터</a></li>
+                <li><a target="inah" href="./clothing.html">의류</a></li>
+                <li><a target="inah" href="./music.html">음악</a></li>
+                <li><a target="inah" href="./movie.html">영화</a></li>
+                <li><a target="inah" href="./sports.html">스포츠/레저</a></li>
+                <li><a target="inah" href="./furniture.html">가구/인테리어</a></li>
+                <li><a target="inah" href="">식품</a></li>
+            </ul>
+        </aside>
+
+        <section id="main">
+            <article>
+                <!--  frameborder :  안주면 경계선이 생김. 우린 필요 없으니까 0으로라도 줌. -->
+                <iframe name="inah" src="./computer.html" frameborder="0" width="500" height="500"></iframe>
+            </article>
+        </section>
+
+
+        <aside id="shopcartlogin">
+            <!-- div 쓰는 이유 => 영역으로 나눠주면 css작업 존나 편해짐. -->
+            <div id="shopcart" >
+                <h4>Shopping Cart</h4>
+                현재 쇼핑카트에 물푼이 없습니다. <br>
+                <a href="./shopcart.html">쇼핑카트 보기</a>
+            </div>
+            <div id="login">
+                <h4>Log in</h4>
+                <form action="./login.html" method="post">
+                    아이디 
+                    <input type="text" > <br>
+                    비밀번호
+                    <input type="password" > <br>
+                    <input type="submit" value="로그인">
+                    <input type="reset" value="초기화" >
+                    <br>
+                </form>
+
+                <a href="./register.html" target="_blank">회원가입</a>                        
+                <a href="./forgotpw.html" target="_blank">비밀번호 분실</a>                        
+            </div>
+
+        </aside>
+
+
+        <footer>
+            Copyrigt &copy; 2022 inah web shop
+        </footer>
+
+
+
+
+
+
+
+    </header>
+
+
+</body>
+</html>
