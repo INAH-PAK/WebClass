@@ -1,0 +1,60 @@
+*{padding: 0px; margin: 0px;}
+
+ul{ list-style: none; }
+a{text-decoration: none;}
+
+header{
+    width: 100%;
+    background-color: #2d3a4b;
+    /* 밑에 탑메뉴 설정할라 하는데 꼭꼭!! 
+        absolute position을 사용하는 자식요소의 기준점을 이 header로 하고 싶으면. . . 
+        static position이 아니기만 하면 됨 !!! */
+    position: relative;
+}
+
+#logo{
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+#top_menu{
+    position: absolute;
+    top : 20px;
+    right: 10px;
+    color: white; 
+
+}
+#top_menu a{ color: white; font-size: 14px;}
+
+nav{
+    border-top: 1px solid white ;
+    border-bottom: 1px solid white ;
+    margin-top: 10px;
+}
+nav li{
+    line-height: 3rem;
+    border-bottom:1px solid #223344 ;
+    text-align: center
+}
+nav li a{ 
+    color: white; 
+    display: block;
+     text-align: center;
+     }
+nav li a:hover{ background-color: aliceblue; color: black;}
+
+#contents #main img{ width: 100%; border: 1px solid gray;}
+
+#contents #banner li{
+    border: 1px solid gray;
+    
+}
+
+#contents #banner li a{ display: block; text-align: center;}
+
+footer{
+    padding: 0px 10px;
+}
+footer img{
+    width: 100%;
+}

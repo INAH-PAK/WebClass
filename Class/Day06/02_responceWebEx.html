@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 웹 페이지 예제</title>
+    <style>
+        *{padding:0px; mardin:0px}
+
+        #wrap{width:90%;
+             border: 2px solid bliack;
+            margin-left: auto;
+            margin-right: auto;}
+
+        #wrap div{
+
+            display: inline-block;
+            width: 100%;
+            height: 100px;
+            /* 기본적으로 인라인 블럭은 무조건 마진 4~6정도 있음. 폰마다 해상도가 달라서 때마다 다름 */
+            /* 그래서 걍 모 테스트로 마진 없에보자 */
+            margin-right: -6px;
+           
+        }
+
+        #wrap div:first-child{background-color: antiquewhite;}
+        #wrap div:nth-child(2){background-color: aquamarine;}
+        #wrap div:nth-child(3){background-color: blue;}
+        #wrap div:nth-child(4){background-color: yellowgreen;}
+        #wrap div:last-child{background-color: violet;}
+
+        /*  미디어 쿼리 적용하기 -> 한 줄에 두개씩 보이는거 */
+        @media screen and (min-width:600px){
+            #wrap div{ width: 48%;}
+            #wrap div:last-child{width: 100%;}
+        }
+        @media all and (min-width:800px){
+            #wrap div{ width: 20%;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+    <div>aaa</div>
+    <div>bbb</div>
+    <div>vv</div>
+    <div>dd</div>
+    <div>aadda</div>
+</div>
+</body>
+</html>

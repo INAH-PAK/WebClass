@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent size</title>
+    <style>
+        *{border: 1px dotted red;}
+    
+        p{padding: 20px;}
+        html,body{ height: 100%;}
+
+        a{padding: 10px;}
+        em{padding: 10px;}
+        strong{padding: 10px;}
+        img{padding: 10px;}
+        input{padding 5px;}
+    </style>
+</head>
+<body>
+    <!-- heigth는 기본이 wrap임. -->
+    <!-- 부모 box 의 heigth 이 언제나 자식으 ㅣbox높이를 감싸지 않을 수 있음.  -->
+<div>
+    <!--  블럭 요소 안에 -  블럭 요소가 있을 때, 부모의 높이는 자식의 뫂이를 감쌀 정도임. -->
+    <!--  헐 바디도 마진이 있음; 악 HTML 문서 자체도 랩이네;  -->
+    <!--  부모 요소는 !! 자식과 마진을포함한 사이즈다 !! -->
+    <!--  ch5 박스모델 참고하기 -->
+    <p>Hello</p>
+
+    <!--  단, 블럭요소안에 - 인라인요요소가 있다면. .  자식 box의 높이를 감싸지 않을 수  있음. -->
+    <hr>
+
+<!-- 블럭 안에 블럭이면 걍 오 크다 또다른 '요소' 다 이러는데 -->
+<!--  인라인 안에 있으면 안에 있는건 컨텐츠라고 생각함. -->
+<!-- 넘치면 걍 오버플로우라고 생각함. -->
+
+    <div style="border: 1px dotted blue">
+        <a href="">NICE</a>
+        <em>Good</em>
+        <strong>fffff</strong>
+    </div>
+<!-- 그럼 만약 인라인 중에서 - 인라인 블럭요소 는 -->
+<img src="./images/logo.png" alt="">
+<input type="text" name="" id="">
+
+<!--  안드로이드에서는 부모를 놓고 그 밑에서 자식들을 빌로우 새라이트 등등 했잖아
+근데 -->
+
+</div>
+</body>
+</html>

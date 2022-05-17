@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 반응형 웹 </title>
+    <!--  해상도의 사잊에 따라 레이아웃의 배치가 달라지느느 것 : 반응형 웹 -->
+    <style>
+
+        /* 반응형 웹 : 디바이스의 해상도에 따른 CSS 적용 */
+        /* 이를 위한 기술 이름 : 미디어 쿼리 */
+
+        /* 미디어 쿼리를 적용하는 방법 2가지 */
+
+        #aa {
+            /* 약간 암묵적으로 규정된 디바이스의 해상도 */
+            width: 320px; 
+            height: 100px;
+            background-color: palevioletred;
+        }
+
+        /* 1. @media 키워드 이용 */
+        /* 크기가 작은 것 부터 먼저 설정하는 것이 수월 */
+        /* 너비가 560 이상이면? 가로모드거나,,더 크거나.. */
+        /*  */
+        @media ( min-width:560px) { 
+            #aa{
+            width: 560px; 
+            height: 200px;
+            background-color: skyblue; 
+            }
+        }
+    </style>
+
+    <!--   2.  외부 스타일 시트에 media 속성 적용 -->
+    <link rel="stylesheet" href="./01_mediaquery.css" media="(min-width:680) and (max-width:800)"  >
+
+    <!-- 내부 스타일 시트도 미디어쿼리 사용 가능. -->
+    <style media="(min-width:800px)">
+        #aa{
+            width: 800px;
+            height: 300px;
+            background-color: aqua;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="aa">
+
+    </div>
+    
+</body>
+</html>

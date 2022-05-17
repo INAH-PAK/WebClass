@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex style</title>
+    <!--  플랙스 스타일 : 자식 요소들의 배치방법을 부모요소에서 결정하는 스타일방식 -->
+    <!-- https://www.w3schools.com/css/css3_flexbox.asp  : 이걸로 공부하기 추후에. 는 무슨 지금 해.. -->
+
+    <style>
+
+        body{ border: 1px dotted red;}
+
+        div#container>div{   /*d원래대로라면 자식요소한테 이 모든걸 설정했지만, 플렉스는 전체에 이렇게 할면 됨*/
+            background-color: aqua;
+            padding: 20px;
+            margin: 10px;
+
+            /* width: 100px; 이거  alingmt-otms 항때만잠간 꺼주세요 */
+        }
+        /*  Flex 스타일 적용: 부모요소가 자식요소의 배피방법을 결정 => 마치 안드로이드와 같음 */
+        #container{
+            /*  Flex 사용시 기본적으로 자식요소의 너비는 랩이 되고, 옆으로 배치됨 매치됨. 마리 Lineare 같이.*/
+            display: flex;
+            /* 그리고 기본적으로 자식요소들의 가로발향 배치다 !!! */
+            /* 근데 그러다가 옆으로 ㅂ치되다가 , 만약 무조여비보다 배채뢷 앞으로계한? */
+
+            /* 데이터 블럭들이 컨테리ㅗ ㅗ */
+            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
+            flex-wrap: nowrap;
+            /* shfoqdl 디폴트상태
+             이제 자식배치 방향에대ㅏㄴ 이야기 */
+            /* 결국 반응형 웹이랑 같음. */
+
+
+
+            /* 2. 자식방향 배치 row 수평 col 수직 */
+            flex-direction: column;
+            flex-direction: column-reverse;
+
+            height: 400px;
+            /*  아예 탑을 쌓아 올리듯이 아래서부터 쌓아올림. */
+
+            flex-direction: row; /* 이게 디폴트값 */
+            flex-direction: row-reverse; /* 매치 인 이유는 방향때문임 ! 3으로 ㄱ */
+
+
+            /*  3. direction , wrap 속성을 축약형으로 쓰느느 속성. 갯수 많게. */
+            flex-flow: row wrap;
+            flex-flow: wrap column;
+
+            /* 아예 기본상태 */
+            flex-flow: row nowrap;
+
+            /*  ⁡⁣⁣⁢4. 정렬 - 갯수가 적어야 이해가 용이.⁡ */
+            /*          정렬에 사용ㅅ하는 속성 2가지 */
+            /*        1. justify-content :  배치방향과 같은 축의 정렬  (니가 가로방향이면 이것도 가로 세로면 세로)*/
+            /*          1.1 수평배치 상황 (row 방향이면  row 배치 ) */
+            /*  자, 배치방향과 정렬은 일맥상통 하다는걸 생각해 ! */
+            flex-direction: row;
+            justify-content: flex-start;
+            justify-content: center;
+            justify-content: flex-end;
+            justify-content: space-between; /*  -> 콘텐츠들을 균등하게 분포해줌 !!! 헐 존나좋음 ㅠㅠㅠㅠㅠ 근데 이건 양 쪽 끝에 있는 애가 벽에 붙어있음.  */
+            justify-content: space-around;  /*  -> 모든 !! 컨텐츠의 간격이 같게 => 그래서 가운데에 있는 애가 두번씩 떨어짐 그런게 싫어? 그럼 밑에 ㄱ  */
+            justify-content: space-evenly;  /*  -> 다 균일 */
+
+
+            /*          1.2 수직 배치 상황 (colum 일땐 수직 배치) */
+
+            flex-direction: column;
+            justify-content: flex-start;
+            justify-content: center;
+            justify-content: flex-end;
+            justify-content: space-between;
+            justify-content: space-around;
+            justify-content: space-evenly;
+           
+
+
+            /*         2. align-items : 배치방향과 교차되는 축의 정렬*/
+            /* 2.1 수평배치 (row) 일때는 수직 정렬 : 가로배치일때 세로측 정렬...*/
+
+            flex-direction: row;
+            align-items: flex-start;
+            align-items: center;
+            align-items: flex-end;
+            align-items: stretch; /* 얘가 디폴트 !!*/
+          
+            align-items: baseline;  /* 요소들의 박스가 아니라, 콘텐츠 기준으로 정렬( ㅈ=콘텐츠의 아래쪽)*/
+            /*  만약에 한 컨텐츠 크기만 다른거랑 달라, 그러면 제일 큰 콘텐츠 요소에 기준을 맞춤.  */
+
+            flex-direction: column;
+            align-items: flex-start;
+            align-items: center;
+            align-items: flex-end;
+            align-items: stretch; /* ->  혹시, 가로너비가 늘어나지 암ㅎ는다면, 그 위치에 width 송성
+
+
+
+
+
+
+            /* 2.2 수직배치 (col) 일때는 수평 정렬 */
+
+        }
+
+
+    
+        /*  flex 로 설정할 때, 자식요소들에게 따로따로 설정하는 방법 */
+        /*  order */
+
+        #container2>div{ order:3;}
+
+
+        /*  flex 로 설정할 때,  너비를 상대적인 값에 비례로 지정  => Linear weight*/
+        /*   flex 속성에서 자식에게 주는거(  플로우 랩 디렉션) -> 부모, (베이시스 그로우 오더) -> 자식*/
+
+        #item1{ flex-grow: 0;}
+        #item2{ flex-grow: 0;}
+        #item2{ flex-grow: 0;}
+
+
+        /*  flex 의 shrink : 나머지 플렉스 아이템들과 비교하여 얼마나 너비를 줄일까? 에 대한 설정 -> 이거만 별도실습. */
+
+        /*  flex-basis (기반) : 요소의 초기 길이를 지정함. */
+        container2>div{background-color: blueviolet; color:aliceblue;}
+        #item1{ flex-grow: 0;}
+        #item2{ flex-grow: 0; flex-basis:}
+            
+
+            /*  5. flex의 grow shrink  basis*/
+            #item1{ flex: 0 0 0px;}
+            #item2{ flex: 1 0 0px;}
+
+            /* 6. 자식요소만의 정렬 */
+            #contaner6{
+                flex-direction: row;
+                height: 300px;
+            }
+
+            #itttttttttttttttttttttttttttttttttttttttttttttttttttt
+        
+    </style>
+</head>
+<body>
+
+
+    <div id="container6" >
+        <div id="item1">rrr</div>
+        <div id="item2">ttt</div>
+        <div id="item3">jjj</div>
+    </div>
+
+
+
+
+
+    
+    <div id="container">
+        <div>aaa</div>
+        <div style="font-size: 35dp;">bbb</div>
+        <div>ccc</div>
+    </div>
+        <!--  자, 갯수가 많다면. . .   -->
+
+    <!-- <div id="container">
+        <div>aaa</div>
+        <div>bbb</div>
+        <div>ccc</div>
+    </div>
+
+    <div id="container">
+        <div>aaa</div>
+        <div>bbb</div>
+        <div>ccc</div> 
+    </div> -->
+
+    <hr>
+    <hr>
+
+    <!--  자식요소만ㄷ의 특징 3가지 -->
+    <div id="container2" >
+        <div id="item1"></div>
+        <div id="item2"></div>
+        <div id="item3"></div>
+    </div>
+
+
+
+    <!-- 제목 영역 만들 때, 이 flex스타일이 아주 ㅞㅂ게 배치 가능ㅎㅁ. 2번 예제 놓침-->
+    <div id="her/">
+        <h2></h2>
+        
+        
+
+    </div>
+</body>
+</html>
