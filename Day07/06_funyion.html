@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+
+        // A. 함수 선언 -> 선언적 함수하고 부름.
+        function aaa(){
+            document.write( 'aaa<br>')
+        }
+
+
+
+        // B. 함수 사용
+        aaa()
+
+
+        // C . 선언적함수는 만든 순서ㅘ 상관없이 호출할 수 있음.
+        bbb()
+
+        document.write('함수를 안만든건 파탈에러까진 아님. ')
+        
+        // D. 선언적 함수는 프로그램이 실행되기 전에 모두 load 됨 !!!
+        function bbb(){
+            document.write( ' 함수를 밑에 만들어도 됨. -> 자바 스크립트는 함수를 먼저 읽어놔서 에러 안남.')
+        }
+
+        // 단, 하나의 script 안에서는 순서가 상관없지만
+        // 다른 스크립트는 순서의 영향을 받음...  -> 자, 우리가 외부에 파일을 만들면 외부 스크립트잖아? 이것처럼 
+        // 스크립트 영역을 띠로 쓰면 1에 있는 함수
+        // 
+
+        //      script1  <- aaa()선언, bbb()선언
+        //      script2  <-  bbb() 사용    => 이렇게 되면 ㄱㅊ 왜냐면 script1 에서 위 함수들을 읽어서 이 HTML에 붙여 놔서 알았거임.
+        //
+
+        ccc()  // 이러면 에러.
+
+        // 에러보는법 -> 크롬 -> 개발자도구 -> console
+
+    </script>
+    <script>
+
+        bbb()
+
+        function ccc(){
+            document.write(' 이건 위에서 모름.')
+        }
+    </script>
+
+    <!--  함수에 파라미터 전달하는 법  -->
+    <script>
+        document.write('<hr>')
+        document.write("<h4> 함수 파라미터 전달 </h4>")
+
+        // 함수 파라미터를 만들때는 var 키워드 쓰면 안됨!!! 
+        function ddd(a){
+            document.write( a + "<br>")
+        }
+
+        ddd(80)
+        ddd("오이")
+        ddd(new Date())
+        // 만약 전달하지 않으면 ???????
+        ddd()  // undefind
+
+        // 파라미터 두개짜리 funtion
+        function eee(a,b){
+
+            var c = a+b
+
+            if(a == undefined || b== undefined){
+                document.write(' 두 개의 수를 전달해주세요. <br>')
+                return
+            }
+            document.write( a + " , " + b + "<br>")
+            document.write( c + " 덧셈결과 ")
+
+        }
+        eee(8,7)
+        eee(9,"당근")
+
+
+        // 같은 함수를 또 만들게 된다면 ?
+        function eee(a,b){
+            document.write('덮어쓰기가 됨 . 근데 선언적 함수라서 아예 바꿔치기됨.<br>')
+        }
+        
+        // 그럼 오버로딩은 되나? -> 함수명이 같고 파라미터만 다른거
+        function eee(){
+            document.write(' 자바 스크립트는 c언어 기반이라 오버로딩 없음. ')
+
+        }
+
+
+        // 리턴이 있는 함수 
+
+
+        
+
+
+    </script>
+
+    <script>
+        document.write('<hr>')
+        document.write("<h4> 리턴이 있는 함수 </h4>")   
+
+
+        // 리턴 키워드가 있어도 리턴타입을 명시하지 않음
+        function ggg(){
+
+            return new Date( ) // 객체도 리턴 가능.
+            return 2>1
+            return 10
+            return "aa" // 문법적 에러지만  리턴은 10으로 가고 걍 함수 끝남. 
+
+        }
+
+        var g = ggg()
+        document.write( g + "<br>")
+
+        // 사용자 객체( 사용자 객체 = 연관배열처럼 만든 개발자의 객체 )도 리턴 가능 
+        function hhh(){
+            return {name:'인아', age:20}
+            }
+
+            var p = hhh()
+            document.write(p.name + p.age + "")
+
+
+    </script>
+
+    <!--  지역변수와 전역변수 -->
+    <script>
+
+        document.write('<hr>')
+        document.write("<h4> 지역변수와 전역변수 </h4>")  
+
+        
+        function mmm(){
+            // 함수 안에 위치한 var 변수 => 지역변수
+            var a = 20
+            // 전역변수 -> 함수 안에서 만들 수 았음, 단, var 키워드 없이 사용
+            b = 50
+            document.write("mmm: " + a + "<br>")
+            document.write("mmm: " + b + "<br>")
+        }
+
+        mmm() // 함수를 미리 찍는다고 해서 다 저장하지 않음.
+
+        // ⁡⁢⁣⁢JS 변수 만드는 법 2가지⁡
+        //1. var 쓰면 지역변수
+        //2. var 없이 그냥 쓰면 전역변수
+
+        // 지역변수에서 지역은 중괄호가 아니라 함수단위 !!!!!!!!!!!
+        // 즉, 반복문이나 , 조건문의 중괄호는 지역이 아님.
+        // JS 에서의 지역 변수의 지역의 기준이 함수임.
+
+        // 근데 지금은 아예 이렇게 안쓰고 let 으로 쓰는데 그 수업은 아예 js 수업 마지막 날 배움.
+        if(true){
+            var t = 100 // 함수 안에 있는것이 아니기 때문에 지역변수가 아님
+            document.write( t + "" )
+
+
+        }
+        document.write( t + "" ) // 여기서 t 쓰면 ? -> 인식 가능. 
+
+    </script>
+
+    <!-- 익명함수  : 이름이 없는 함수 ( 반드시 변수에 저장되어서 사용되어야 함 ) && 선언적 함수가 아님. -->
+    <script>
+
+        document.write('<hr>')
+        document.write("<h4> 익명함수 </h4>") 
+
+        //show() ⁡⁢⁢⁢// error  익명 함수는 선언적 함수와 다르게 먼저 load되지 않음.⁡
+
+        var show = function(){  // 익명함수
+            document.write("show")
+        }
+
+        show() // 함수를 저장하는 변수명이 함수 이름이됨. --> 이를 이용해 익명함수 호출하면 됨
+        show()
+
+        // 익명함수는 다른변수에 전달이 가능함.
+        var output = show // 함수를 전달 !!   var output = show()이렇게 하면 리턴값을 넣은거임.
+     
+        // 변수로 줄 수 있다 == 함수의 파라미터로 줄수 있음.
+    </script>
+
+
+        // 함수를 다른 함수의 매개변수 ( 파라미터 ) || return 으으로 전달하기 
+
+        <script>
+
+        document.write('<hr>')
+        document.write("<h4> 함수를 파라미터 or 리턴으로 전달 </h4>")
+
+        // 1. 선언적 함수
+        function kkk(gg){
+            // 전달받은 함수를 대신 호출
+                gg()
+        }
+
+        // 2. 익명함수
+        var sss = function(){
+            document.write(" sss 함수 . . . <br>")
+
+        }
+
+        kkk(sss)  // 3
+
+        //sss라는 변수가 함수를 가지고 있었으니까
+        // 이번에는 변수를 굳이 만들지 말고 바로 익명함수를 전달해보기
+        kkk( function(){
+            document.write("익명함수 발동 ! ")
+        })
+
+        //리턴타입으로도 함수를 되돌려 받을 수 있음
+        function ttt(){
+
+            var p = function(){
+                document.write(" 함수 자체를 리턴")
+            }
+
+
+            return p
+            
+        }
+
+        var z = ttt() // ttt함수에서 리턴한 익명함수를 z가 받기 !!!
+        z() // 라는 이름을 함수 이름으로 사용
+
+
+        </script>
+
+
+
+
+
+
+
+
+</head>
+<body>
+    
+
+
+
+
+
+
+
+</body>
+</html>
