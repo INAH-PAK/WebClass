@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js 가이드 테스트</title>
+</head>
+<body>
+
+    <button onclick="clickBtn(this)">입력</button>
+        <p>사용자의 숫자 입력 값 : </p><p id="p"></p>
+        
+   <script>
+       function clickBtn(e){
+        var num = prompt("숫자를 입력하세요")
+        var p = document.getElementById('p')
+        p.innerHTML = num
+       }
+   </script>
+
+   <hr>
+   <h1>가위바위보 게임</h1>
+   <button onclick="startGame(this)">게임을 시작합니다.</button>
+   
+   <script>
+       function startGame(e){
+           var userInput = prompt(" 가위 , 바위 , 보 !")
+
+           var com = Math.random()*10 // 0.0 ~ 1.0 사이의 값
+        
+
+           if( com < 3) result = "가위"
+           else if( com < 6) result = "바위"
+           else result = "보"
+
+            switch(userInput){
+                
+                case "가위": 
+                    if(result == "가위") alert(result + " 비겼습니다.")
+                    else if(result == "바위") alert(result + " 졌습니다.")
+                    else alert(result + " 이겼습니다.")
+                    break
+                case "바위": 
+                if(result == "가위") alert(result + " 이겼습니다.")
+                    else if(result == "바위") alert(result + " 비겼습니다.")
+                    else alert(result + " 졌습니다.")
+                    break
+                default:
+                    if(result == "가위") alert(result + " 졌습니다.")
+                    else if(result == "바위") alert(result + " 이겼습니다.")
+                    else alert(result + " 비겼습니다.")
+                    break
+
+            }
+
+       }
+
+
+
+   </script>
+
+<hr>
+<h1>가위바위보 게임</h1>
+<button onclick="startGame2('가위')">가위</button>
+<button onclick="startGame2('바위')">바위</button>
+<button onclick="startGame2('보')">보</button>
+<script>
+
+    function startGame2(userInput){
+
+        var com = Math.random()*10 // 0.0 ~ 1.0 사이의 값
+
+        if( com < 3) result = "가위"
+        else if( com < 6) result = "바위"
+        else result = "보"
+
+        
+        switch(userInput){
+                
+                case "가위": 
+                    if(result == "가위") alert(result + " 비겼습니다.")
+                    else if(result == "바위") alert(result + " 졌습니다.")
+                    else alert(result + " 이겼습니다.")
+                    break
+                case "바위": 
+                if(result == "가위") alert(result + " 이겼습니다.")
+                    else if(result == "바위") alert(result + " 비겼습니다.")
+                    else alert(result + " 졌습니다.")
+                    break
+                default:
+                    if(result == "가위") alert(result + " 졌습니다.")
+                    else if(result == "바위") alert(result + " 이겼습니다.")
+                    else alert(result + " 비겼습니다.")
+                    break
+
+            }
+
+
+
+
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

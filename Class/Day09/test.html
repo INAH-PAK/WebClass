@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
 
     <title>Document</title>
-    <script>
+    
+</head>
+<body>
+    
+    <!--  형제노드 찾아와 제어하기 -->
+    <!-- div 쓰고 엔터키 치고 p 치잖아 ? 그래서 이 안에는 엔터키도 자식으로 쳐짐. 그래서 엘리먼트로 자식찾아야 함. -->
+    <div> 
+        <p>rrr</p>
+        <ul>
+            <li>aa</li>
+            <li>bb</li>
+            <li>cc</li>
+        </ul>
+    </div>
 
+
+    <button onclick="clickBtn(this)">클릭 </button>
+    
+    <p>아이디 없는 그냥 p요소</p>
+    
+<script>
 
         function clickBtn(e){ //함수는 파라미터를 받을 수 있음. e : 버튼을 클릭 할 때 전달된 this(button 요소 자기 자신)
             var divs = document.getElementsByTagName('div')
@@ -48,25 +67,6 @@
         }
 
     </script>
-</head>
-<body>
-    
-    <!--  형제노드 찾아와 제어하기 -->
-    <!-- div 쓰고 엔터키 치고 p 치잖아 ? 그래서 이 안에는 엔터키도 자식으로 쳐짐. 그래서 엘리먼트로 자식찾아야 함. -->
-    <div> 
-        <p>rrr</p>
-        <ul>
-            <li>aa</li>
-            <li>bb</li>
-            <li>cc</li>
-        </ul>
-    </div>
-
-
-    <button onclick="clickBtn(this)">클릭 </button>
-    
-    <p>아이디 없는 그냥 p요소</p>
-
 
     </button>
 </body>
