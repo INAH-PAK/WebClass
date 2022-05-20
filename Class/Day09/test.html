@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script>
+
+
+        function clickBtn(e){ //함수는 파라미터를 받을 수 있음. e : 버튼을 클릭 할 때 전달된 this(button 요소 자기 자신)
+            var divs = document.getElementsByTagName('div')
+            // div의 자식 중에서 첫 번째 요소 p 를 찾겠다.
+            var p  = divs[0].firstElementChild // 퍼스트 차일드는 엔터키임
+
+            // 요소 다음에 있는 ul 찾기
+            var ul = p.nextElementSibling // 넥스트시블링 하면 엔터키 알려줌. 꼭 엘레멘트 !
+            alert(ul.childNodes.length)  //children == childNodes 같은 말.
+
+            // 자식중에서 요소의 갯수만 알고 싶다면?
+            alert(ul.childElementCount) // 엔터키 빼고 찐 자식들만 알려줌.
+
+            // 출력 결과를 다이알로그(경고창)로 맨날맨날 보는거 개귀찮
+            // 그래서 이 버튼 다음에 있는 p 요소의 텍스트로 표시해보자.
+
+            var p = e.nextElementSibling
+            // .textContents -> 해당 텍스트 노트 값에 바로접근,
+
+            // p.textContent="<h1>버튼을 누르셨음.<h1>" 
+            // 근데 이거 안씀.
+            // 근데 이렇게 하면 아무리 h1, strong 이런거 해석 못하고 그냥 <h1>을 글씨덩어리로 봄.
+
+                // 노트의 종류 -> DOM트리가 알아서 해석함.
+                // 텍스트 노트 ( 글씨노드 ) - 현재 p요소 : 글씨로만 해석 됨
+                // 요소
+
+            p.innerHTML = "<h1>버튼을 누르셨음.<h1>" //이렇게 하면 <h1> 이런거 알아먹음.
+
+
+
+                // 돔 해석 중요 - 요소 제어시 가장 중요하고 많이 사용 됨.
+                // node
+                //1. 요소
+                //2. 속성
+                //3. 텍스트
+
+
+
+        }
+
+    </script>
+</head>
+<body>
+    
+    <!--  형제노드 찾아와 제어하기 -->
+    <!-- div 쓰고 엔터키 치고 p 치잖아 ? 그래서 이 안에는 엔터키도 자식으로 쳐짐. 그래서 엘리먼트로 자식찾아야 함. -->
+    <div> 
+        <p>rrr</p>
+        <ul>
+            <li>aa</li>
+            <li>bb</li>
+            <li>cc</li>
+        </ul>
+    </div>
+
+
+    <button onclick="clickBtn(this)">클릭 </button>
+    
+    <p>아이디 없는 그냥 p요소</p>
+
+
+    </button>
+</body>
+</html>

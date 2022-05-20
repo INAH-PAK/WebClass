@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = 10
+        var b= new Number(10)
+
+        document.write(a==b)
+        document.write(a===b) // 타입이 같냐라는거 b는 오브젝트로 뜸
+
+
+        var num = new Number(123.456)
+
+        // 지수 표현법
+        document.write( num.toExponential() + "<br>"  )
+        document.write( num.toExponential(2) + "<br>"  ) // 소수점 아래 2ㅈ리
+
+        // 소수점 자르기
+        document.write( num.toFixed()  + "<br>" ) // 아예 소숫점 자르기
+        document.write( num.toFixed(2)  + "<br>" ) // 소숫점 2자리까지만 나오고 반올림 자르기
+
+        // 진법을 변환해서 보여줌 ( 반환값은 Strinf=g)
+        var num = new Number(10) 
+        document.write( num.toString()  + "<br>" ) // 사실 이게 10진법으로 출력되어왔던거임
+        document.write( num.toString(16)  + "<br>" ) // 16진법
+        document.write( num.toString(8)  + "<br>" ) // 8진ㅂㅂ=ㅓㅂ
+        document.write( num.toString(2)  + "<br>" ) // 2진법
+
+        //Number는 안드로이드의 래퍼클래스같음 ( 자동으로 감싸주는 ) -> 자바의 오토박싱(원래 객체가 아닌걸 객체로 감싸는)
+        //수치형은 자동으로 Number 객체로 Wrapping 됨
+        var n = 255
+        document.write( n.toString(16) + "<br>")
+
+        //수치형 상수값들도 자동 Wrapping 됨. 단 !! 실수형만 가능. 
+        // 내부적으로는 int, float 같이 나눠지잖아?
+        // 몬소리냐면
+
+        document.write( 10.543321.toFixed()+ "<br>")
+        // 10.543321 은 그냥 리터럴이잖아?
+        // 객체도 아니고 그냥 숫잔데
+        // 여기에 . 찍으면 메소드들이 나옴 -> js가 자동으로 자료형을 랩핑해준거임 
+        // 단 ! 이건 실수만 됨 !!!!!
+        // 정수형은 자동으로 안됨. 정수형은 꼭 변수에 넣고, 그 다음에 . 찍어서 매소드들을 봐야 함.
+
+        // 그럼 정수를 보고 싶으면? 만약 보고 픈게 10 이면 -> 10.0 일케 하면 됨.
+        document.write( 10.0.toString(2)+ "<br>")
+
+        // 저런걸 언제 씀?
+        // 두 수를 비교할 때, 특정 자리수까지만 같은지 비교할 때 활용
+        var n1 = 3.1414141414    
+        var n1 = 3.14151915
+
+        document.write( n1 == n2 + "<br>")
+        document.write( n1.toFixed(2) == n2.toFixed(2) + "<br>") // 반올림 유의.
+
+
+    </script>
+</head>
+<body>
+
+
+
+    
+</body>
+</html>

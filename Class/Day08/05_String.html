@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String</title>
+    <script>
+        // 이거 개중요 
+
+        var a = "Hello"
+        var b = new String("Hello")
+
+        document.write(typeof(a)+ "<br>")
+        document.write(typeof(b)+ "<br>")
+        document.write(a === b + "<br>")
+        document.write( "<hr><br>")
+
+        //String 객체의 주요 메소드들
+        var s = "Hello world"  // 문자형 (String) -> 자동 String 으로  warpping 됨
+        document.write( s.length + "<br>")
+        document.write( s.toUpperCase() + "<br>")  //write안에서 쓰다보니, ⁡⁣⁣⁢​‌‌‌원본 s는 변경되지 않음.​⁡
+        document.write( s.toLowerCase() + "<br>")
+
+        s.concat("Nice") // 원본 s 변경 X
+        var ss = s.concat("Nice")
+        document.write(ss +"<br>")
+        document.write(s +"<br>")
+
+        document.write(s.indexOf('w') + "<br>") // 특정 글자가 있는 위치( 인덱스 번호 0,1,2,. . . . )
+
+        // 문자열 중에서 특정 문자가 있는지 탐색 -> 탐색한 글자를 리턴
+
+        var str = "Hello World Nice Meet You 안녕하세요 반갑습니다 Nice Work! Nice Study"
+
+        var search = str.match("Hello") // 찾아진 글씨를 리턴해줌
+        document.write(search + "<br>")
+
+        search = str.match("hello") // (대소문자 구분 X) 글자가 없으면 null 줌
+        document.write(search + "<br>")
+
+        // 만약 대소문자를 무시하고 찾아달라고 하고 싶다면?
+        // 옵션을 주면 됨 !!!! -> ignore 을 줄인 i 를 주면 됨.
+        // 정규 표현 식 -> [/ . . /] : /안의 글자로 원하는 조건으로 글자를 찾고 싶을 때.
+        // 레귤러 익스프레션
+        search = str.match(/hello/i) 
+        document.write(search + "<br>")
+
+        //match 되는 글자가 여러 개일땐?
+        search = str.match(/Nice/) // 찾아진 글씨를 리턴해줌 근데 한개 ㅜ
+        document.write(search + "<br>")
+        // 여러개 찾구 싶다구 !!
+        search = str.match(/Nice/g) //Global 을 줄인 옵션 g : 찾아진 글씨를 리턴해줌
+        document.write(search + "<br>") // 결과가 여러개 이므로, 리턴값은 배열임 !!
+        document.write(search[0]+ "<br>")
+        document.write(search[1]+ "<br>")
+        document.write(search[2]+ "<br>")
+        document.write(search+ "<br>") // 만약 배열을 그냥 출력하면 ->찾은 요소값들이 그냥 출력됨. 헐
+
+        // 옵션 두개 줄 수도 있음
+        search = str.match(/hello/ig) 
+        document.write(search + "<br>")   //search 는 배열
+
+
+        search = str.match(/안녕/ig) 
+        document.write(search + "<br>")   //search 는 배열
+
+        // 문자 대체하기 . .  . replace
+        var s = "Hello World" 
+        document.write( s.replace("World" , "Android") + "<br>" )
+        document.write( s.replace("WorlD" , "Ios") + "<br>" ) // 대소문자 구문 하므로 이건 못바꿈 리턴은 원래글자 그대로
+
+        // 대소문자 구분 안하고 했으면 좋겠을 때
+        document.write( s.replace(/WorlD/i , "Ios") + "<br>" )
+        // 같은 글씨 여러개 있으면?
+        s = "Hello World, Nice World, Good World, Bad World "
+        document.write( s.replace("World" , "Hybrid") + "<br>" ) // 이렇게 하면 하나면도됨.
+        document.write( s.replace(/World/g , "Hybrid") + "<br>" )
+
+
+        // 위를 이용해서 특정 기사에서 비속어를 xxx 처리 하는것이 가능
+
+
+
+
+        // 문자열을 특정글씨 기준으로 잘라서 배열로 받기
+
+        var s = "one,two,three,four,five"
+        var arr = s.split(',')
+        document.write( arr.length + "<br>")
+        document.write( arr[0] + "<br>")
+        // 주소, 경로, 이메일 분리 같은 곳에 활용가능
+        var email = "aaa@addaa.com"
+        var a = email.split("@")[0]
+        var b = email.split("@")[1]
+        document.write( a + "<br>")
+        document.write( b + "<br>")
+
+        //문자열을 HTML요소로 자동 감싸주기
+        var s = "This is Test"
+        document.write(" <strong> " + s +" </strong> "+" <br>" ) //쓰기 구ㅣ참ㅎ
+        document.write( s.bold() +" <br>" ) //쓰기 구ㅣ참ㅎ
+        document.write( s.italics() +" <br>" ) //쓰기 구ㅣ참ㅎ
+        document.write( s.fontcolor('pink') +" <br>" ) //쓰기 구ㅣ참ㅎ
+        document.write( s.link("naver.com") +" <br>" ) //쓰기 구ㅣ참ㅎ
+    
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
