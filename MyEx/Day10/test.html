@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 실습예제 416p</title>
+</head>
+<body>
+
+    <p id="pp">버트느을 누르면 이요소의 내용이 바뀜</p>
+    <button onclick="hh()" type="text" > 버튼을 누르세요</button>
+
+    <script>
+
+        function hh(){
+            alert('tt')
+           
+        }
+
+    </script>
+    <hr>
+
+    <h2>숫자를 입력하세염</h2>
+    <input type="text" id="in2"> 
+    <button onclick="bbb()"> 입력 완료</button>
+    <script>
+        function bbb(){
+            var regExp = /^\d+/
+            var result = document.getElementById('in2').value
+
+            if(regExp.test(result)) alert(" 정확해유")
+            else alert(" 숫자가 아닙니다.")
+
+        }
+    </script>
+    <hr>
+    
+    <img src="./images/moana.gif" id="img" alt="클릭 전 이미지">
+    <p>스위치를 클릭하여 보세요</p>
+    <script>
+            document.getElementById('img').onclick = function(){
+                document.getElementById('img').src = "./images/winter.gif"
+            }
+        
+
+    </script>
+    <style>
+            label{
+                display: inline-block;
+                width: 150px;
+            }
+
+
+    </style>
+
+    <hr>
+
+        <form action="#">
+            <fieldset>
+                <legend>회원 신청서</legend>
+                <label for="name" >이름*</label>
+                <input type="text" name="name" id="in1" onblur="change1()" required >
+                <span  id="p1"></span><br>
+                <label for="gender">성별*</label>
+                <input type="radio" name="gender" value="여성" id="w">여성
+                <input type="radio" name="gender" value="남성" id="m">남성
+                <span  id="p2"></span><br>
+                <label for="pnum">휴대폰 번호Phone*</label>
+                <input type="number" name="pnum" id="in3" onblur="change3()" required>
+                <span  id="p3"></span><br>
+                <label for="email">이메일*</label>
+                <input type="text" name="email" id="in4" onblur="change4()" required>
+                <span  id="p4"></span><br>
+                <label for="pw">패스워드(6~8글자)*</label>
+                <input type="text" name="pw" id="in5" onblur="change5()" required>
+                <span  id="p5"></span><br>
+                <label for="pw">패스워드 검증*</label>
+                <input type="text" name="pw" id="in6" onblur="change6()" required>
+                <span  id="p6"></span><br>
+                <label for=""></label>
+                <button on id="submit">제출</button>
+                <button>지우기</button>
+            </fieldset>
+        </form>
+        <script>
+            var regExp1 = /\w+/
+            function change1(){
+                var j = document.getElementById('in1').value 
+                if(!regExp1.test(j) ) document.getElementById('p1').textContent = "이름을 입력하세요"
+            }
+            // var regExp2 = /\w+/
+            // function change1(f){
+            //     var j = document.getElementById('in2').value 
+            //     if(regExp1.test(j)) document.getElementById('p1').innerHTML = "이름을 입력하세요"
+            // }
+            var regExp2 = /^\d\d\d-\d\d\d\d-\d\d\d\d&/
+            function change3(){
+                var j = document.getElementById('in3').value 
+                if(!regExp2.test(j)) document.getElementById('p3').innerHTML = "올바른 전화번호를 입력하세여"
+            }
+            var regExp3 = /\w+@[a-z]+.[a-z]{3,}&/
+            function change4(){
+                var j = document.getElementById('in4').value 
+                if(!regExp3.test(j)) document.getElementById('p4').innerHTML = "올바른 이메일을 입력하세ㅕ"
+            }
+            var regExp4 = /\w{6,8}/
+            function change5(){
+                var j = document.getElementById('in5').value 
+                if(!regExp1.test(j)) document.getElementById('p5').innerHTML = "올바른 빈호 형식을 입력하세ㅕ"
+            }
+            function change6(){
+                var j = document.getElementById('in6').value 
+                var jj = document.getElementById('in5').value 
+
+                if(j != jj) document.getElementById('p6').innerHTML = "비밀번호가 같지 않습니다."
+                else document.getElementById('p6').innerHTML = "ㅊㅋㅊㅋㅊ."
+            }
+
+          
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
