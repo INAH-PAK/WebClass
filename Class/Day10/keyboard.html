@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>key Event</title>
+    <!-- // 브라우저에서 키 아무고나 누르면 반응하게 하는 예쩨 -->
+
+    <SCript>
+        // 키보드 이벤트 : keypress, keypress , keyup
+    </SCript>
+</head>
+<body onkeypress="keypress()">
+    <h4>키보드로 아무거나 눌르세염</h4>
+    <input type="text"  id="keycode">
+    <input type="text"  id="keychar">
+    <input type="checkbox" id="shiftkey" >
+</body>
+<script>
+    // 키보드엔 방향키엔 아스키가 없고, 문자구분 -> 키다운
+    function keypress(){
+        var keycode = window.event.keyCode //문자의 아스키코드
+        document.getElementById('keycode').value=keycode
+        document.getElementById('keychar').value=String.fromCharCode(keycode)
+        document.getElementById('shiftkey') = event.shiftkey
+    }
+</script>
+
+<hr>
+<!-- html 요소에 속성으로 이벤ㅌ 함수를 지정하는 것과 -->
+<!--  addEventListener() 메소드를 이용해  -->
+<input type="text" onkeyup="aaa()">
+<script>
+    function aaa(){
+        alert(this) // this == window 객체
+
+    }
+</script>
+<!--  특별한 속성 없음 -->
+<input type="text" id="in4">
+<script>
+    
+    // document.getElementById('in4').addEventListener('keyup', function(){
+    //     alert(this) // this == 이벤트를 발생시키는 요소 지칭함
+    -> 교수님, 주석 피료
+    // })
+
+    // ⁡⁢⁣⁢​‌‍‌개중요 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!𝟭​⁡
+    var kkk = function(){
+       // alert(this) // this == 이벤트를 발생시키는 요소 지칭함
+        this.value = this.value.toUpperCase()
+    }
+    document.getElementById('in4').addEventListener('keyup',kkk)
+</script>
+
+
+
+
+</html>

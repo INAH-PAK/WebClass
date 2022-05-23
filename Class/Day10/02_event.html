@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 에서의 Event Handle</title>
+
+    <script>
+        // JS 에서의 이벤트 처리를 하는 방법
+        // 1. html 에서 요소에 속성으로 콜백함수 지정 <button onClick="aaa()">
+        // 2. 자바스크립트에서 요소를 찾아와서(뽜인드엘레멘트바이아이디~) 이벤트콜백 속성에 함수를 지정 <-Day09 - bom어쩌구.html
+        // 3. 요소의 특정 이벤트 리스너를 추가하는 메소드를 통해 처리. : addEvevtListener
+
+        //onload 이벤트 : ⁡⁣⁣⁢​‌‍‌문서의 로드가 모두 완료되면 발동하는 이벤트 ​⁡
+        // body 안에 있는 요소 제어
+        document.getElementById('aa').innerHTML // 이거 실행 안됨 
+        // 왜냐면 head가 body보다 먼저 !!!! 읽힘.
+
+        // 자 , 이제 시작하쟝
+        // 1. html 요소에 속성으로 이벤트에 발동하는 함수 지정 방법
+        function loaded(){
+            document.getElementById('aa').innerHTML = 'Hello'
+        }
+        // 2.1 onclick 이트트를 자바스크립트에서 처리하기 -> 실무에서 많이 사용
+        document.getElementById('aa').onclick = function(){
+            alert('Clicked Hello')
+            document.getElementById('aa').innerHTML += "Web"
+        }
+
+        // 2.2 double click 이벤트 처리하기 1  - aa
+        document.getElementById('aa').ondblclick = function(){
+            alert('double click')
+        }
+
+        //3.요소에 리벤트 리스터 추가 이벤트//addEventListener ( 1. 이벤트 종류(on 안씀) : click 클릭 dblclick: 더블클릭 )
+        document.getElementById('bb').addEventListener(click, function(){
+            alert( '더블클릭')
+        })
+
+    </script>
+</head>
+<body onload="loaded()">
+
+    <!-- 1. 이벤트 핸들러 적용 연습 (onload 이벤트) -->
+    <h2 id="aa"></h2>
+    <br>
+    <h2 id="bb">Nice</h2>
+
+
+    <hr>
+    <!-- 2. input 요소의 입력 필드값 변경 이벤트 -->
+    <input type="text" id="in1" onfocus="aaa()">
+    <input type="text" id="in2" onblur="bbb()" onchange="ccc()">  <!--  blur : 흐릿하다 -->
+    <script>
+        function aaa(){
+            document.getElementById('in1').value = "Nice"
+        }
+        // 그냥 포커스가 이동하면 다 뜸
+        function bbb(){
+           alert('blur')
+        }
+        // 값이 변경 + 포커스 이동 해야 뜸.
+        function ccc(){
+           alert('change')
+        }
+    </script>
+    <hr>
+
+    <!-- 입력 요소에 값을 입력하고 필를를 벗어나면 자동 대문자로 변경해주는 기능 만들어보자 - 국민은행 처럼 -->
+    <input type="text" placeholder="아이디" id="in3" onchange="changeUp()">
+    <script>
+        function changeUp(){
+            var v = document.getElementById('in3').value
+            document.getElementById('in3').value = v.toUpperCase()
+            // 타입 스크립드 : 자료형 명시할 수 있는 거 ( 프로젝트 포트폴리오에 넣잖아? ~~~ 적용 예정으로 써야 함. )
+        }
+    </script>
+
+    <hr>
+
+    <!--  마우스 이벤트 -->
+
+    <!-- 마우스 over , out  ,  move -->
+    <!--  onmouseover :  요소 위로 올라왔을 때 -->
+    <div onmousemove="move()" onmouseout="out(this)" onmouseover="over(this)" style="width: 200px; height: 100px; background-color:yellow ;"></div>
+    <script>
+        // CSS에서의 hover를 JS로 구현한 것. - 때에따라 JS로도 할 수 도 있ㅇ니까 ~
+        function over(e){
+            e.style.backgroundColor = "ligthgreen"
+            e.style.border = "2px soild red"
+        }
+        function out(e){
+            e.style.backgroundColor = "yellow"
+            e.style.border = ""
+        }
+        var a=0
+        function move(e){
+            e.innerHTML = "move"
+            // 무브는 무브 할 때 마다 계ㅖㅖㅖㅖ속 부름
+            a++;
+            e.innerHTML = a+"" // 이걸 응용해서 마우스 움직일 때 마다 게임..
+            
+        }
+    </script>
+
+    <!-- 마우스 좌표 알아내기 -->
+    <div id="kk" style="width: 300px; height: 100px; background-color:aqua "></div>
+    <script>
+        // ㅣ
+        document.getElementById('kk').addEventListener('mousemove',function(event){ //event는 이름 아무거나 지어도 됨
+                // 이 이벤트 리스너 함수의 파라미터 event는 자동으로 전달되어 오며,
+                // 그 파라미터는 이벤트의 정보를 가지고 있는 객체임.
+
+                
+                //글고 마우스 좌표는 총 3개 얻기 가능
+                // 1. ⁡⁣⁣⁢모니터⁡의 좌표 기준 (우측 상단이 0,0)
+                var s = "모니터 기준 좌표 : " + event.screenX + " , " + event.screenY + "<br>"
+                document.getElementById('kk').innerHTML = s
+
+                s += "브라우저 기준 좌표 : " + event.clientX + " , " + event.clientY + "<br>"
+                document.getElementById('kk').innerHTML = s
+                
+                s += "영역을 기준 좌표 : " + event.offsetX + " , " + event.offsetY + "<br>"
+                document.getElementById('kk').innerHTML = s
+
+
+        }) //on빼고 이벤트의 이름 쓰면 됨.// on : ~했을 때 전치사라서.
+                                                                    
+    </script>
+    
+    <!-- 마우스 다운 & 업 -->
+    <button id="btn">button</button>
+    <script>
+        var btn = document.getElementById('btn')
+        btn.addEventListener('mousedown',function(){
+            btn.style.backgroundColor = "#FF0000FF"
+            btn.style.color = "#FFFF00FF"
+            btn.style.fontSize="2rem"
+        })
+        // 이벤트 콜백 함수를 별도의 변수에 넣어서 리스너에 추가해보자.
+        var up = function(){
+            btn.style.backgroundColor = "" // 디폴트 스타일을 줌
+            btn.style.color = "#FFFF00FF"
+            btn.style.fontSize="0.5rem" // 여기도 빈칸 써도 됨
+        }
+        btn.addEventListener('mouseup', up )
+
+    </script>
+
+
+</body>
+</html>
