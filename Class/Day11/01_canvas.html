@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <script>
+        // body 문서가 모두 Loaded 된 후 실행되는 메소드
+        function loded(){
+            var canvas = document.getElementById('canvas1')
+        
+        
+        //캔버스에 그릴을 그릴 화가 객체인 Context!!!! ->  안드로이드랑은 상관 없음 ~
+        var context = canvas.getContext('2d')
+
+        // 화가 객체에게 글씨 그리기
+        // 자, 콘텍스트 화가 객체는 글씨든 도형이든 뭐든 다 '그린다' 라고 함.
+
+        // 글씨 스타일 지정 (화가가 쓸 붓을 정해주기)
+        context.fillStyle = "red"
+        context.font = "20px cursive"
+
+        // 글씨를 그리는 법 2가지 : 1. fillText( 글씨 찐하게 채우기) 2. stropText (글씨 안채우고 윤곽따라 보여줌)
+        context.fillText("Hello", 10, 40) //글씨의 좌 하단 좌표
+        context.fillText("Hello", 10, 40) // 안보이겠징
+        context.fillText("Hello", 0, 20) //좌 상단
+        context.fillText("Hello", 0, 400) // 좌 하단
+
+        //strokeText 에 대한 색깔 주기
+        context.strokeStyle= "blue"
+        //글씨를 윤곽선으로 그리기
+        context.strokeText("Hello", 100, 40)
+
+        // 사각형 그리기
+        context.fillStyle = "green"
+        context.fillRect(10,50,100,40) // 좌 상단 : 10,50  ,  너비 100 , 높이 40
+
+        // 사각형 그리기
+        context.strokeStyle = "green"
+        context.strokeRect(120,50,100,40) // 좌 상단 : 10,50  ,  너비 100 , 높이 40
+
+        // 직선 그리기 - 화가가 스으윽 그리기 시작 ~
+            context.beginPath()// 1.  선의 경로를 시작 !
+            context.moveTo(10,100) // 2. 선의 시작 위치로 이동 !
+            context.lineTo(100,150) // 2. 선의 시작 위치로 이동 !
+            context.stroke() // 2. 선의 시작 위치로 이동 !
+
+                    // 직선 그리기 - 화가가 스으윽 그리기 시작 ~ 2 
+                    context.beginPath()// 1.  선의 경로를 시작 !
+            context.moveTo(20,100) // 2. 선의 시작 위치로 이동 !
+            context.lineTo(30,200) // 
+            context.lineTo(100,150) // 
+            context.stroke() // 2. 선의 시작 위치로 이동 !
+
+            // 이미지 그리기
+            var a = new Image()
+            a.src = "./images/winter.gif" // 이미지 부르기
+            //이미지를 설정하면 (로딩하면 ) 만들어 질 때 까지 시간이 걸림
+            // 그래서 이미지 로드가 완료 된 후 그려야 함 !! <- 권장
+            a.onload = function(){
+                context.drawImage(a, 10,180) // 그림의 좌상단
+                context.drawImage(a, 10,180,100,150) //100,150: 그려내는 이미지의 사이즈
+            }
+
+            // 방향키로 캐릭터 움직이기
+
+
+}
+    </script>
+</head>
+<body onload="loded()">
+
+    <!--  그림을 자바스크립트로 그릴 영역  -->
+    <canvas id="canvas1" width="300" height="400" style="border: 1px solid black;"></canvas>
+    
+</body>
+</html>

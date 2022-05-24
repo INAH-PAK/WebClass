@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Parsing</title>
+</head>
+<body>
+
+    <h3 id="target"></h3>
+    <button onclick="aaa()">jsonObject 파싱</button>
+    <button onclick="bbb()">jsonArray 파싱</button>
+
+    <script>
+
+        function aaa(){
+
+            // 서베에서 받아오 ㄹ 제이슨 데이터를 테스터 용으로 하나 만듬,
+            var s = '{"name":"ssm" , "age" : "20"}'
+
+            // s: 제이슨 문자열 
+            // 이 s를 객체로 변환하자,
+
+            // JSON 이 이미 있어서 !!! -> JSON.parse : 제이슨 문자열을 객체로 변환. JSON.stringify : 객체를 제이슨 문자열로.
+            var person = JSON.parse(s)
+            document.getElementById('target').innerHTML = person.name + " : " + person.age
+            
+        }
+
+        function bbb(){
+            
+            // 서버에서 받은 제이슨 배열 문자열을 객체로 바꾸자.
+            // 테스트 용으로 배열 하나 만들기.
+            var ss = '[' + 
+                '{"name":"ssm" , "age" : "20"},'+
+                '{"name":"inah" , "age" : "27"},'+
+                '{"name":"wookie" , "age" : "27"}'+
+            ']'
+
+            var people = JSON.parse(ss)
+            var s=""
+            // 이러면 people은 배열로 객체가 숑숑숑 들어와있음,
+            for(var i = 0 ; i < people.length ; i++){
+                s+= people[i].name + " : " + people[i].age +"<br>"
+            }
+
+            document.getElementById('target').innerHTML = s
+        }
+
+    </script>
+    
+    <hr>
+
+    <!--  JS의 객체를 Json문자열로 변환 -->
+    <button onclick="ccc()">Object to json</button>
+    <button onclick="ddd()">ObjectArray to jsonArray</button>
+
+    <h3 id="aa"></h3>
+
+    <script>
+        function ccc(){
+
+            //JS 객체 ( 문자열이 아닌거 주의 !! 이런걸 자바 스크립트 객체 !!)
+            var person = {
+                name:"sam",
+                age:20
+            }
+
+            // 오브젝트 -> 제이슨 문자열로 !!!
+            var json = JSON.stringify(person)
+            document.getElementById('aa').innerHTML = json
+            
+        }
+
+        function ddd(){
+            // JS Array 객체
+            var obhArray = [
+                {name:"sam", age: 20, address : {nation:"korea",city:"seoul"}},
+                {name:"inah", age: 280 , address : {nation:"japan",city:"tokyo"}},
+                {name:"wookie", age: 10 , address : {nation:"korea",city:"seoul"}}
+            ]
+
+            var json = JSON.stringify(obhArray)
+            document.getElementById('aa').innerHTML = json
+
+
+        }
+
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <title>jquery Example</title>
+     <!--  제이쿼리 라이브러리 적용방법 총 2가지 -->
+     <!-- https://jquery.com/download/ -->
+     <!--1.  파일 다운로드 방식 .:Download the compressed, production jQuery 3.6.0 slim build
+      -->
+      <script src="./jquery-3.6.0.slim.min.js"></script>
+
+      <!-- 2. CDN(Content Delivery Network) 방식 -->
+      <!-- 1은 단점이 너무 많음 , 웹서버의 용량이라던가, 라이브러리 버전마다 일잉ㄹ히 다운받던가.. -->
+      <!-- CDN 방식 : https://developers.google.com/speed/libraries#jquery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- 내부 스크립트 -->
+      <script>
+          //웹문서의 로드가 완료되면 , 실행되는 콜백 함수 등록
+          //원래는 onload=~~ 지만, 이젠 제이쿼리로 써보자.
+          
+          jQuery(document).ready(function(){
+              alert('제이쿼리로 온로드 콜백 구현 성공')
+
+              // 제이쿼리의 장점
+              // 요소의 검색이 쉬움 (선택자 사용으로 인해서)
+              // 이벤트 처리가 간결(리스너들)
+              // 에니메이션 적용이 쉬움.
+
+
+              //HTML 요소를 찾을 때 CSS 선택자를 이용해서 쉽게 선택할 수 있음.
+              // 문법 1. [JQuery('CSS 선택자' or 객체).원하는 기능]
+              // 문법 2. [$('CSS 선택자' or 객체).원하는 기능]
+
+              jQuery('#btn').click( function(){ // 클릭돌 떼 이
+                alert('clicked')
+                $(this).hide
+              })
+
+          }) 
+
+        // jQuery 의 클릭 이벤트 처리와 에니메니션 적용
+        $('#b1').click( function(){
+            $('img').show('slow')
+        })
+
+        $('#b2').click( function(){
+            $('img').hide(3000)
+        })
+
+        $('#b3').click( function(){
+            $('img').toggle()
+        })
+
+        $('#b4').bind('click', function(){
+            $('img').fadeIn(5000, function(){ //fadeIn 5초 끝나면 발동
+                alert("동기작업 ㄲ느")
+            })
+        })
+        $('#b5').bind('click', function(){
+            $('img').fadeOut()
+        })
+        $('#b6').bind('click', function(){
+            $('img').fadeToggle()
+        })
+        $('#b7').on('click', function(){
+            $('img').slideUp()
+        })
+        $('#b8').on('click', function(){
+            $('img').slideDown()
+        })
+        $('#b9').on('click', function(){
+            $('img').slideToggle()
+        })
+     
+
+      </script>
+</head>
+<body>
+    <button id="btn">버튼</button>
+
+    <hr>
+
+    <p>
+        <button id="b1">show</button>
+        <button id="b2">hide</button>
+        <button id="b3">toggle</button>
+        <button id="b4">fadeIn</button>
+        <button id="b5">fadeOut</button>
+        <button id="b6">fade</button>
+        <button id="b7">slideup</button>
+        <button id="b8">slideout</button>
+        <button id="b9">slidetoggle</button>
+        <button id="b9">모아서 보여줌</button>
+    </p>
+
+    <img src="./images/bazzi.png" width="200"">
+
+    
+</body>
+</html>

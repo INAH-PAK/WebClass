@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+
+    <script>
+        // AJAX ( Asyncrhronise JavaScript And XML)
+        // AJAX 기술은 네트워크 통신이므로 서버환경에서만 구동됨. 즉, HTTP 주소 환경에서만 구동됨.
+        function aaa(){
+
+            // 1. 네트워크 통신을 수해아는 객체 생성 -> ⁡⁢⁣⁢​‌‌‍마치 android의 HttpUrlConnert와 같은 역할 !!!
+            var xhr = new XMLHttpRequest()
+
+            // 2. 무지개로드 열기
+          // A.  xhr.open('GET','./aaa.txt', true) // GET 방식으로 aaa.txt 파일을 열게따. Asynchronous 여부는 ture (false 로 하면 동기하는 말은 존나 오래걸려서 버튼이 반응 안함)
+
+            // 3. 통신의 시작. 네트워크 통신 객체를 서버로 보내라 ! 
+          //  xhr.send()
+            // 이걸 하면 결과를 받아와야 하는데 비동기식이라서 일 끝나면 지 혼자 끝나잖아?
+            //  -> 리스너를 달아아ㅑ 함.
+            
+            // 자, 
+            // send()를 해서 객체를 보냈잖아?
+            // 그럼 자동으로 이 콜백을 부름. 근데 이게 send()문 뒤에 있으면 send()로 객체가 가버리고 뭘 가져오라고 시키는 꼴아잖아?
+            xhr.onreadystatechange = function(){ 
+
+                // 왔어?
+                // 자 , 우리가 통신을 시작하면 서버로부터 응답을 받는 상황이 여러번이야.
+                //  응답 1. 서버 : "  사장님 객체 하나 왔어요 ~ " 
+                //  응답 2. 서버 : "  응 이거 객체에 문제 없어 ~  "
+                //  응답 3. 서버 :  " 나 이제 작업 시작할게 ~"
+                //  응답 4. 서버 :  " 나 이제 작업 끝났어 ~"
+                //  응답 5. 서버 :  " 이제 객체 다시 보냈어 결과값이랑 같이 ~"
+
+                // 작업에 대한 코드도 줌
+                // 서버 작업 다 온전히 OKOK 면 -> 200
+                // 서버 작업 망하면 -> 400 시리즈
+
+                // 요즘은 1번 4번 응답코드만 받는 추세임.
+
+
+                // 이렇게 서버의 상태변화를 총 5번 응답으로 서버가 보냄.
+                // 이 번호들은 이 xhr 객체가 가지고있음.
+                if(xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById('ta').innerHTML = xhr.responseText
+                }
+
+
+             }
+            // 그래서 이걸 샌드 위에 보내야 함.
+            // 일단 위에 샌드 지우고 여기다 쓰자.
+            // 자 onreadystatechange 여기로 가봐.
+
+
+            // B
+            xhr.open('GET','./05_getTest.php?title=Hello&msg=Inah', true) 
+            xhr.send()
+        }
+
+        function bbb(){
+
+            var xhr = new XMLHttpRequest()
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    document.getElementById('ta').innerHTML = xhr.responseText
+                }
+            }
+            xhr.open('POST','./05_posTest.php', true)
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded') // 2번째 파라미터는 www 기술을 썼다라는 건데
+            // 멀티 폼 데이터는 헤더와 바디를 나눴다는 약속을 한 형식?암, 아 존나 어려움,,
+            xhr.send('id = abcd&pw=1234') // 이 안의 데이터들
+        }
+    </script>
+</head>
+<body>
+    <!--  서버와의 통신을 form 요소 말고, JS를 이용하여 데이터만 주고받기 -->
+    <p>
+        <button onclick="aaa()">GET METHOD</button>
+        <button onclick="bbb()">POST METHOD</button>
+    </p>
+
+    <textarea id="ta" cols="40" rows="5"></textarea>
+    
+</body>
+</html>
