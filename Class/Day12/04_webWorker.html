@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Worker</title>
+    <!--  web worker : JS의  Thread( 별도의 작업자 ) -->
+
+</head>
+<body>
+    <button onclick="clickBtn()">무한 반복하는 작업용 버튼</button>
+    <br>
+    <h2 id="hh"> Result </h2>
+    <hr>
+    <button>button</button>
+
+   
+    <script>
+     var n
+        function clickBtn(){
+            //별도의 Thread를 사용하지아않고 main Thread 가 오래걸리는 작업 수행
+            while(true){
+                n++
+            }
+            // document.getElementById('hh').innerHTML = n
+            // 무한 반복중임 . . . . 그러면 화면을 그려내는 작업조차 못함. 
+            // 왜냐면 화면을 그려내는 것은 랜더링이라는 메소드를 돌려야 하는데 n만 존나 돌리는 중임
+
+        }
+    </script>
+
+<hr>
+<br>
+<h2 id="h2"> Result </h2>
+
+
+<button onclick="clickBtn2()"> start worker</button>
+<button onclick="clickBtn3()"> stop worker</button>
+
+<script>
+    var w //워커 참조변수
+    function clickBtn2(){
+        //워커 객체 생성하면 자동 start
+       //워커가 할 일은 별도의 js문서에 작성
+       if( w == undefined) { w = new Worker('./worker.js')
+       w.onmessage = function( event ) {
+           // 데이터를가가진   
+           document.getElementById('h2').innerHTML = event.data
+            }
+        }       
+       else alert('이미 직원이 있오 ')
+    }
+    function clickBtn3(){
+       
+         w.terminate()
+       
+        w.undefined
+    }
+</script>
+
+</body>
+</html>

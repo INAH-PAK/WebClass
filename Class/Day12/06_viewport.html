@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view port</title>
+    <!-- veiw port : 디바이스에서 화면이 크기를 인식하는 가상의 박스(영역) -->
+    <!-- 이 view port 영역이 데스크탑일때는 무조건 브라우저의 크기와 같음 -->
+    <!-- 근데 !!!!!!!!!!! -->
+    <!-- 모바일 일 때, 실제 디바이스의 해상도 너비와 상관없이 무조건 뷰포트가 980으로 고정되어 있음!! -->
+    <!-- 근데 기본 값이 px 이 아니라, dp(농도) 와 관련되어 있음. -->
+
+    <!-- 만약에 가로가 1080px 이라면 이거는 dp로 따지면 한 380 dp 정도 됨. -->
+    <!--  dp란 가상의 단위이ㅁ -->
+
+    <!-- 모든 디바이스 값은 다 사이즈가 다른데, 뷰 포트는 몰 보든 980으로 알잖아? -->
+    <!--  그래서 실제 디바이스의 사이즈에 맞게 뷰포트를 설정해줘야 함. -->
+    <!-- content="width= 412, initial-scale=1.0"에서 initial-scale=1.0는 글씨까지 랜더링 하겠다.  -->
+    <!-- <meta name="viewport" content="width= 412, initial-scale=1.0"> -->
+    <!-- 테스트  <meta name="viewport" content="width= 600, initial-scale=1.0"> -->
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <!-- 단,  device-width는 android만 가능함. -->
+    <!-- 근데 아이폰은 어차피 제조사가 하나라 크기는 고정되어 잇어서 뭐~ ios...는  -->
+</head>
+<body>
+    
+    <h2>view port Test</h2>
+    <p>모바일 웹에서 필수로 적용해야 할 요소 </p>
+
+    <img src="./image/computer.png" alt="컴퓨터" style="width: 200px; border: 1px solid plum;">
+
+
+</body>
+</html>
