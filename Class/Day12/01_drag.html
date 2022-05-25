@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag and drop</title>
+
+    <style>
+        div#cart {
+            width: 400px;
+            height: 150px;
+
+            padding: 10px;
+            border: 1px solid rebeccapurple;
+
+        }
+
+    </style>
+
+    <script>
+
+        var id // 드래그되는 요소의 id를 저장하는 변수
+        var overTarget = false // 드래그 되는 요소가 타겟 요소 위에 올라왔느냐?
+
+
+
+
+        // 실제 발생하는 순서의 흐름에 따른 함수 정의 입니당
+        function startDrag(){
+            // s1.  드래그 이벤트의 정보를 가진 객체가 어떤 요소인지를 알아보자.
+            id= window.event.target.id  // window.event.target -> 여기까지가 요소 그 자체임. 이 놈의 아이디를 .id로 알아봄
+
+        }
+
+        function overDrag(){
+            // 2.
+            overTarget = true
+            // 기본적으로 요소 (div) 위에 드랍되는 것이 금지되어있는데 디폴트로 됨.
+            // 이 기본 설정을 변경해야 함.
+            // 이 기본 설정 (방지)
+            event.preventDefault()
+        }
+        
+        // 끌어다가 놓ㅈ 않고 떠났으면 dragDrop 안뜨고 이게 뜸
+
+        function leaveDrop(){
+            //3.
+            overTarget = false //  안놓여지고 타겟위에 있는 상태
+
+
+        }
+        function dragDrop(){
+
+            //4. 드래그 끝나면 div한테 뜨는 함수
+
+        }
+        function enddrag(){
+            // 5. 드래그 끝나면 옮기는 요소한테 뜨는 함수
+            if(overTarget){
+                // 드래그 되는 요소를 찾아보기
+                var e = document.getElementById(id)
+                // 찾은 target요소의 자식으로 추가
+                document.getElementById('cart').appendChild(e)
+                overTarget = false
+            }
+
+
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+
+    <div id="cart" ondragover="overDrag()" ondrop="dragDrop()" ondragleave="leaveDrop()"></div>
+
+    <img src="image/computer.png" width="150" height="150" id="img01" ondragstart="startDrag()" ondragend ="enddrag()">
+    <img src="image/tshirt.jpg"width="150" height="150" id="img02"  ondragstart="startDrag()" ondragend ="enddrag()">
+    
+</body>
+</html>

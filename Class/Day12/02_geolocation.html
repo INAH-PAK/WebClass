@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>위치정보 얻기</title>
+
+    <script>
+        function clickBtn(){
+            // 모질라에서 만든? navigator
+            //파라미터에 전달한 함수가 내위치 얻었을 때 자동 발동
+            window.navigator.geolocation.getCurrentPosition( function(position){ // 이 익명함수는 자동으로 position 가지고 있음
+            var lat = position.coords.latitude
+            var lng = position.coords.longitude
+
+            document.getElementById('hh').innerHTML = lat + " : " + lng
+        })
+        }
+
+        //위피를 지속적으로 얻어올 값
+        var watcher
+        function clickBtn2(){
+            watcher = navigator.geolocation.watchPosition( function(position){
+                var lat = position.coords.latitude
+                var lng = position.coords.longitude
+                document.getElementById('hh').innerHTML = lat + " : " + lng
+            })
+        }
+        function clickBtn3(){
+            navigator.geolocation.clearWatch(watcher)
+
+
+        }
+    </script>
+
+</head>
+<body>
+    
+
+    <button onclick="clickBtn()">my location</button>
+    <h3 id="hh">location Result</h3>
+
+    <hr>
+
+    <br>
+
+    <button onclick="clickBtn2()">위치 자동 업데이트</button>
+    <button onclick="clickBtn3()">위치 업데이트 종료</button>
+</body>
+</html>
