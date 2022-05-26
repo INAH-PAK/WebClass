@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function : (두꺼운 화살표 함수)</title>
+
+</head>
+<body>
+    
+    <script>
+            //화살표 함수 -  자바, kotlin 언어의 람다 표기법
+            // 원래 함수 만드는 법 2가지 - 1. 선언적 함ㄱ수 , 2. 익명함수
+            // 1. 가장 일반적인 선언적 함수
+            function show(){
+                document.write("show!!!!<br>")
+            }
+            show()
+            //2. 함수를 변수에 저장하여 사용하기 ( => 익명함수)
+            let output = function(){
+                document.write("output!!!!<br>")
+            }
+            output()
+
+            // 3. 이 위에 있는 익명 함수르 ㄹ줄여쓰고 싶음 ( 2번을 . . .)
+            // 3. [화살표 함수 ]
+            let display = ()=>{
+                document.write("display<br>")
+            }
+            display()
+
+            // 자 함수를 만드는게 총 3가지지? 이젠 화살표 함수에 대해서 보자
+            // 함수도 파라미터를 받을 수 있음
+            let display2 = (name)=>{
+                document.write("display2 " + name + " <br>")
+            }
+            display2("inah")
+            // 화살표 함수의 파라미터가 1개라면 . . . . . () 생략할 수 있음.
+            let display3 = name => {
+                document.write("display3 " +name +"<br>")
+            }
+            display3("dd")
+
+            // 만약 =>{} 실행문이 한 줄 이라면 . . . {} 조차도 생략할 수 있음
+            let display4 = name=> document.write("display4 " +name + "<br>")
+            display4("iii")
+
+
+            //만약 파라미터가 한 개도 없다면, () 생략 불가
+            let display5 = ()=> document.write("display5 " +name + "<br>")
+            display5("ooo")
+
+            // 만약 파아미터가 2개 이상이면 ?//> ()샐약불가
+            let display6 = (name , age, nick)=>{
+                document.write("display6 " + name + " <br>")
+            }
+            display6("ㅅㅅㅅ",90,"ㄱㄱ")
+
+    </script>
+
+    <hr>
+
+    <!--  보통 화살표함수는 '이벤트처리 콜백한수용 난' -->
+    <button id="btn" onclick="">button</button>
+    <h4 id="hh">ㅗ디ㅣㅐ</h4>
+    <script>
+        //버튼 클릭 이벤트 처리하기
+        // 1. 기존방식
+        var btn = document.getElementById('btn')
+        btn.onclick = function(){
+            document.getElementById('hh').innerHTML = "nice"
+        }
+        // 2. 화살표 함수로 만들기 // 이벤트 처리에서 자주 쓰임
+        btn.onclick = ()=> document.getElementById('hh').innerHTML="click btn"
+       
+
+    </script>
+
+    <hr>
+
+    <h3 id="hhhh"></h3>
+
+    <script>
+
+        const hhh = document.getElementById('hhhh')
+         //화살표 함수는 배열의 요소에 접근하는 방법에서도 화살표 함수는 많이 활용 됨.
+        
+         //자바스크립트에서 배열을 만드는 2가지 방법
+         let arr = [10 , 20 , 30]
+            hhh.innerHTML += arr[0] + "<br>"
+            hhh.innerHTML += arr[1]+ "<br>"
+            hhh.innerHTML += arr[2]+ "<br>"
+
+            for(let i = 0 ; i < arr.length ; i++){
+                hhh.innerHTML += arr[0] 
+            }
+            hhh.innerHTML +="<hr>"    
+        // 위 반복문으 ㄴ비교연산자들을사용ㅎ다보니 실수의 가능성이 있.
+        // 인텍스 번호를 조그 ㅁ더 쉽게 얻어오는 ㅇ정더 in.
+
+        // 다 존나 귀찮잖아
+        // ES5 버전에서 등장한 배열객체의 forEach(), map() 메소드
+        // forEach()에 파라미터로 전달한 함수가 배열의 요소개수만큼
+        //  반복적으로 호출 됨.
+
+
+        arr.forEach(function(value , index , arr){
+            hhh.innerHTML += value + "<br>"
+
+        })
+        
+             hhh.innerHTML +="<hr>"
+         
+
+        // forEach() 의 파라미터로 전달된 익명함수 
+             arr.forEach( value =>hhh.innerHTML += value  + "<br>" )
+             hhh.innerHTML +="<hr>"
+        //.map() : ForEadh() 오 ㅏ똑같이 반복 호출 됨 근데 return이 있음.
+             let aaa =  arr.map( function(value , index){
+                 return value+1
+              })
+
+             hhh.innerHTML += aaa //배열 자체를 출력하면자동요소 요소 요소 나옴.
+        // 위 동작을 화살표 함수로, . . . 
+        // 화살표 함수에서 중괄호를 새략할땐느 return 키워드도 생략해야 함 !!!!!!!!!
+             let bbb =  arr.map( value=> value+2 )
+             hhh.innerHTML += bbb
+
+        </script>
+</body>
+</html>

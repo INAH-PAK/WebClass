@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Test </title>
+    <!--  Module -->
+        <!-- 하나의 JS에서 다른 JS 문서의 변수나 함수, 클래슫 등을 사용하는 기법 -->
+        <script type="module" src="./module_aa.js" ></script>
+        <script type="module"> // 이렇게 써야지 이 밑이 동작 함. 이 js 는 모듈로서 동작한다고 생핳해야하.
+            // 이 영역으 JS 영역이잖아?
+            // 이 영역에서 다른 .js가져올거임
+            // 필요한 것만
+            // 그 때 쓰는데 import
+             
+            // node.js s나 웹서버에서 봐야 함. 
+
+            // import show from './module_aa.js' //이렇게 하면 이 밑의 show 는 이 쇼임
+
+            // // 디폴트가 아닌 녀석등을 무저간 즈ㅓ판해 하
+            // import { addHeadingElementToBody} from './module_aa.js'
+            // import {name , age } from './module_aa.js'
+
+            // 위임포트 모두 같은 JD니싸 항방에 임포트
+            // 말고 ㄴ머===도나ㅓ막 
+            import show, {name, age , addHeadingElementToBody}  from './module_aa.js'
+
+            show()
+            addHeadingElementToBody("noecccc")
+            alert(name + " , " )
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    
+</body>
+</html>
