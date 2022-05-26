@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        class A{
+
+            constructor(name , age){
+            this.name = name,
+            this.age = age
+    
+            }
+            show(){
+                document.write(this.name + this.age)
+            }
+        }
+
+        let person =new  A("aa",88)
+        person.show()
+
+        // 상속받기
+        class B extends A{
+
+            constructor(name , age , major){
+                super(name, age) // 상속받은 부모의 부모생성자
+                this.major = major
+            }
+
+            show(){
+                super.show()
+                document.write(this.major)
+            }
+
+        }
+
+        const s = new B("ㅑㅜㅁ", 55, "ㅎㅎㄹㅇ")
+        s.show()
+
+
+    </script>
+    
+
+    <script>
+
+// 객체 생성 없이 
+        class C{
+            static show(){
+                document.write("<br>   show . . . static 함수<br> ")
+
+            }
+
+        }
+        C.show()
+
+        class D{ // static 맴버변수
+
+           constructor(){
+                //여기서 스테틱은 안됨
+           }
+           static name = "dd"
+        }
+
+        document.write(D.name + "<br>")
+
+        // 근데 스테틱이 자바와의 다른 점은,,, 객체를 생성하고 객체 참조변수로는 static 맴버변수 사용 불가
+        let ss = new D()
+        document.write("name : " + ss.name) // ss객체의 새로운 맴버변수 name을 만든 꼴.
+        // 자 ss는 참조변수잖아? 근데 static은 참조변수가 클래스를 접근할 수 없음
+        // 주의 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    </script>
+
+    <hr>
+    <script>
+
+        //객체의 맴버를 설계와 다르게 생성한 후 확장할 수 이ㅛ음
+        class Test{
+            name = "aaa"
+            show(){
+                document.write(this.name+ "<br>")
+            }
+        }
+
+        let t = new Test()
+        t.show()
+
+        //객체 생성 후에 설계도면(class)에 없던 맴버 추가 가능
+        t.age = 20
+        document.write(t.age + "<br>")
+        // 맴버 메소드 !!! 도 추가 가능 - 이걸 많ㅇ 사용.
+        // 원래느 아예 설계도면 건들이지도 못했잖아?
+        // 근데 이걸하면 기존 클래스에 ㅉ?ㅗ금만 더 축하고 싶을 때 ㄱㄱ
+        // [ 확장 함수 ]
+        t.output = function(){
+            document.write(this.name + " , " + this.age)
+        }
+        t.output()
+    </script>
+
+<hr>
+<hr>
+
+<script>
+
+// 객체의 구조를 분해해서 맴버만 쏙 뽑아온다 ==> " 객체 구조 할당"
+class Nice{
+
+    constructor(){
+        this.name = "이나"
+        this.age = 30
+        this.address = "천안"
+        
+    }
+
+}
+
+let nice = new Nice()
+document.write("name : " + nice.name)
+document.write("age : " + nice.age)
+document.write("add : " + nice.address)
+// 이렇게 변수를 쓸 때마다 너무 반복을 함. 누구. 누구. 이렇게 하잖아 어차피 nice 하나인데 계속 반복되잖아
+
+// 기존 개발자들은 이렇게 편하지만 귀찭. . . 
+// let name = nice.name
+// let age = nice.age
+// 이렇게 하나씩 맴버값으 ㄹ빼와서 일반 변수에 대입하면 다음부터는 사용할 때 편함.. . 
+//일반 변수에 객체의 맴변변수를 하나씩 할단하는것도 다시 짜증 
+//[메소드 체이닝]
+
+let{name,age,add} = nice // 객체 안에서 name 만 빼서 일반 변수에 할당. -> " 구조 분해 할당"
+document.write(name + " , " + age)
+
+
+
+
+// 이걸 왜 존나 좋은지 느껴보자. . .
+// nice  객체의 주소값을 출력해주는 기능함수
+
+showAddress(nice) // 객체 전체 전달. - 객체 다 받기
+show2Address(nice) // 객체 전체 전달. -"구조 분해 할당"을 이용해서 객체 중에 딱 {}안의 변수들만 간거고 그 변수명만 찍으면 다 보임 !!!
+
+
+function showAddress(object){
+    document.write("<br>"+ object.address )
+
+}
+
+function show2Address( {address }){
+    document.write("<br>"+ address )
+    
+}
+
+// 자 나중에 코드를 보묜
+// index value array -> 9일차 때 함.. 배열.forEach 하면 세개 값 주는고. . . 
+
+function aaa(index){  // -> 이 코드는 몬가 숫자 하나를 받은 느낌이고
+    
+}
+
+function bbb( { index }){  // -> 이 코드는 몬가 객체 중에 온 느낌이잖아.
+    
+}
+
+// nam 이라는 맴버가 없죠 없으면 구조 분해 할당안도;ㅁ
+const { address , nammm } = nice
+
+document.write(address ) //나옴
+document.write(nammm )   // 안나옴
+
+// 특이한 구조 분해 할당 
+class Hello{
+    rrr = 10
+    bbb = 10
+    ccc = 10
+    ddd = 10
+}
+
+let hello = new Hello()
+const { rrr, ...rest} = hello  // . . . 라는 객체에 나머지 맴버가 모두 할당 됨.
+document.write(rrr + "<br>")
+document.write(rest.bbb + "<br>")
+document.write(rest.ccc + "<br>")
+
+
+// -------------------------------------next ->Method--------------------------------------------------------
+
+
+
+
+</script>
+
+</body>
+</html>

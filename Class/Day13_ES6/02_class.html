@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class</title>
+</head>
+<body>
+    
+    <script>
+
+// 원래 JS는 class 가 없었음. 
+// 원래 JS 하던 사람들은 class의 존재를 CSS 의 스타일시트에 있던 것만 알았는데,
+// 기존의 프론트엔드 하던 사람들이 화면도 만들어 버리는 시기가 와서 엄청 넘어왔었음.
+// 그래서 기존의 나처럼 ㅎㅎ 네이티브 즉, 씨나 씨쁠 하던 사람들이 개짜증났었음 ㅜㅜㅜㅜ
+// 막 사람들이 짜증내니까  ECMA에서 아 씨 내가 그럼 만들어줌 ! 하고 드뎌 class를 만들어준거임,
+//여기서 전에 배웠던 JS의 객체 만드는 법을 다시 한 번 회기 시켜보자.
+// 자 JS는 함수 이름으로 객체를 지정했었엄. 
+// 일단 정석으로 두 가지가 있음.  -> 설계도면 만들기. 객체 선언할 때 바로 리터럴 객체로 만들어버리기.
+
+
+// JS 에서 객체를마만드는 법 2가지
+//1.아예 평소처럼 설계도면 만들어두고 쓰는거 - class
+//2.아예 만들면서 씀 -> 
+//2가 뭔지 헷갈리지 ㅠ 그래서 다시 한 번 회기 ㄱㄱ
+// 함수를 이용함 !!! 이게 정석...
+
+function student(){
+    this.name   // 이런 식으로 변수, 함수들을 만들고 !
+    this.age
+    this.show = function(){    }
+    
+}
+// 만약 객체를 만들어 쓸 땐,
+
+S = new student() // 이렇게 쓰는 거임.
+// 만일 값을 다른 값으로 주면서 쓰고 싶다? -> 생성자 이용 ㄱㄱ
+
+
+//---------------------------------------------------------------------------------------------
+
+// 교수님 설명 시작
+//기존의 객체 생성 1가지
+//1. literal 갹체 ( 변수 - property , 함수 - 메소드 )
+var h = { name: "inah",
+          age : 20,
+          show : function (){
+              document.write(this.name + " , " + this.age
+              )
+          }}
+
+// 생성자 함수를 이용해서 객체의 맴버를 설계하고 new 로 객체 생성
+function Humman(name , age){
+    this.name = "sam"
+    this.age = 20
+
+    // 반드시 !! 키워드 없이 함수 선언
+    // this.show = function(){
+    //     document.write(this.name + " , " + this.age)
+    show()= {
+        document.width="this.name / document.age = 80"
+
+    }
+    // }
+    
+}   
+var hh = new Humman()
+hh.show("inah",80)
+var hh = new Humman()
+hh.show()
+
+//
+//3. class키워드 !!! 새로생김 -> this던 var이던 아무런 키워드 없어야 함 ~~~~~~~~~~~~
+
+class Person{
+
+// 기존 생성자함수처럼 this. 키워드로 맴버르 람ㄴ들면 에허
+name = "sam"
+age = 88
+
+// 다른 방법으러 멤바변수를 만드는 방법
+// 생성자 함수한에 병수 니매용저
+constructor(){
+    this.addrrss = "home"
+}
+
+show(){
+    document.write( this.name)
+}
+
+
+// 익명함수 메소드
+outout = function(){
+
+}
+
+
+//맴버혀ㅏ무 
+}
+
+
+// Person 클래스를 객체로 만듬
+let p = new Person()
+p.name
+p.age 
+
+    </script>
+
+<script>
+    // 과연 위에서 만든 Person class를 인식할까요? -> 스크립트 첫 번째의 Person 객체가 선언적으로 만들어저ㅕ ㅇㅆ어서 가능.
+
+    const p2 = new Person()
+    p2.show()
+
+// 객체를 생성하면서 전달하기 -> 생성자 함수의 ㅣ파라미터 만들기
+class Member{
+    // class안에서는 this 없어야 하고 ㅡ apthem dksdptjsms 고ㅑㄴ dlTdjdi gka
+    constructor(id , pw){
+        
+        this.id = id
+        this.pw = pw
+
+    }
+    // constructor(){
+    //     // 오버로딩 기능엇ㅂ음... 이프엔스롳 =ㅓ=처리ㅏㅎ데
+    //     this.id = " 기본"
+    //     this.pw = " 기본"
+    // }
+    show(){
+        document.write("ID:" + this.id + " , " + "PW" + this.pw)
+    }
+    
+
+}
+
+const m = new Member("ㅑㅜㅁㅎ", 8888)
+m.show()
+
+// 혹시 생성자에 가뵤 안주면/
+// 언디파인 뜸. -> 그래서 생성자 함수를 오버로딩. . . 을 시도...
+
+//
+</script>
+mwix
+
+</body>
+</html>
+
